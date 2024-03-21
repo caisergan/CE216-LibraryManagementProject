@@ -46,6 +46,27 @@ public class MainController {
             System.out.println("JSON written to file successfully.");
         }
     }
+    public void fillBook (BookInformation book){
+
+        book.setTitle(titleText2.getText());
+        book.setSubtitle();
+        book.setTranslators();
+        book.setAuthors();
+        book.setPublisher();
+        book.setTags();
+        book.setRating();
+        book.setEdition();
+        book.setCategory();
+        book.setLanguage();
+        book.setDate();
+        book.setIsbn();
+        book.setCover();
+
+    }
+
+
+
+
     //Document address created
     static String userhome=System.getProperty("user.home");
     static String fileName="Libray Storage/";
