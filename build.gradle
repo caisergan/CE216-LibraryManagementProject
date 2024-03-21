@@ -38,7 +38,8 @@ dependencies {
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-  implementation 'com.google.code.gson:gson:2.10'
+  implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
+
 }
 
 test {
