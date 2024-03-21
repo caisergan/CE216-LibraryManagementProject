@@ -5,6 +5,8 @@
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-fxml/17.0.6/5724aedc415683e62eeab3a3875550aa814c84fd/javafx-fxml-17.0.6-win.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-fxml/17.0.6/454e1950e8e231a73badfa471a113077172aaca6/javafx-fxml-17.0.6-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
