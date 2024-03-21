@@ -22,11 +22,11 @@ public class MainController {
             return null;
         }
     }
-    /*@FXML
+    @FXML
     public void SaveAll(ActionEvent event) throws IOException {
         CreateNewBook();
         //swith scane satırı
-    }*/
+    }
 
     public void CreateNewBook()throws IOException {
         Gson gson = new Gson();
@@ -61,6 +61,7 @@ public class MainController {
         book.setDate();
         book.setIsbn();
         book.setCover();
+        book.setPictures();
 
     }
 

@@ -18,16 +18,12 @@
             <children>
                 <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0" spacing="10.0">
                     <children>
+                  <Button mnemonicParsing="false" text="Browse" />
                         <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Downloads/search-engine.png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Browse" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="180.0" />
@@ -40,28 +36,20 @@
                                 <Image url="@../../Downloads/plus.png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Add" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </HBox>
+            <Button mnemonicParsing="false" text="Add" />
                 <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0" spacing="10.0">
                     <children>
+                  <Button mnemonicParsing="false" text="Edit" />
                         <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Downloads/pen.png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Edit" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="10.0" />
@@ -69,21 +57,18 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0" spacing="10.0">
                     <children>
+                  <Button mnemonicParsing="false" text="Delete" />
                         <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Downloads/delete%20(1).png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Delete" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </HBox>
+            <Button mnemonicParsing="false" text="Export" />
                 <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0" spacing="10.0">
                     <children>
                         <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
@@ -91,11 +76,6 @@
                                 <Image url="@../../Downloads/export.png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Export" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets top="10.0" />
@@ -108,16 +88,21 @@
                                 <Image url="@../../Downloads/switch.png" />
                             </image>
                         </ImageView>
-                        <Label prefHeight="25.0" prefWidth="108.0" text="Exit" textFill="#5a5a5a">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
+                  <Button mnemonicParsing="false" text="EXIT" />
                     </children>
                     <VBox.margin>
                         <Insets bottom="5.0" top="170.0" />
                     </VBox.margin>
                 </HBox>
+            <HBox alignment="CENTER" prefHeight="55.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Downloads/pen.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
             </children>
         </VBox>
     </left>
