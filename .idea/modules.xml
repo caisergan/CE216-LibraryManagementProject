@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CE216-LibraryManagementProject.iml" filepath="$PROJECT_DIR$/.idea/CE216-LibraryManagementProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CE216-LibraryManagementProject.iml" filepath="$PROJECT_DIR$/CE216-LibraryManagementProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" filepath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" />
     </modules>
   </component>
 </project>
