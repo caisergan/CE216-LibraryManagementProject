@@ -16,6 +16,7 @@ import java.lang.reflect.Modifier;
 
 
 public class MainController {
+    Gson gson = new Gson();
 
 
     private static BookInformation readJsonFile(String filePath) {
@@ -33,7 +34,7 @@ public class MainController {
 
     //METHODS WILL BE BELLOW
     public void CreateNewBook()throws IOException {
-        Gson gson = new Gson();
+
         createdir.mkdirs();
         String title=titleid.getText().toUpperCase(); //titleID ile bahsedilen GUI'deki textfield kısmının id is olacak.
         String newFile;
@@ -65,6 +66,7 @@ public class MainController {
         book.setDate(dateid.getText());
         book.setIsbn(isbnid.getText());
         book.setCover(coverid.getText());
+
         //book.setPictures();
 
     }
@@ -86,6 +88,24 @@ public class MainController {
         dateid.setText(bookselected.getDate());
         isbnid.setText(bookselected.getIsbn());
         coverid.setText(bookselected.getCover());
+        editFile(bookselected,selected);
+    }
+
+
+
+    public void editFile(BookInformation book,String newFile){
+        fillBook(book);
+        BookInformation course=new BookInformation();
+        fillBook(course); //fillBook will be a method
+        String newJson = gson.toJson(course); //toJson will be a method
+        File file = new File(FinalPath,newFile);
+        try (FileWriter fileWriter = new FileWriter(file)) {
+            fileWriter.write(newJson);
+            System.out.println("JSON written to file successfully.");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
@@ -98,7 +118,8 @@ public class MainController {
 
     @FXML
     public void editButton(ActionEvent event) throws IOException {
-        CreateNewBook();
+        openFile("DENEME ADI"); //openfile düğmeye tıklanarak çağırıldığı için anca sonra çağırılıyor. start gui bittikten sonra ara sahne eklenerek düzeltilecek bu da
+
         //swith scane satırı
     }
     //FXML BUTTON CODES WILL BE BELLOW

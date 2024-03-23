@@ -4,7 +4,6 @@ module com.example.ce216librarymanagementproject {
     requires com.google.gson;
     requires java.desktop;
 
-
-    opens com.example.ce216librarymanagementproject to javafx.fxml;
+    opens com.example.ce216librarymanagementproject to com.google.gson, javafx.fxml;
     exports com.example.ce216librarymanagementproject;
 }
