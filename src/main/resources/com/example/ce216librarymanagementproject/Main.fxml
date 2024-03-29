@@ -28,7 +28,7 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="List Book">
+                  <Button fx:id="listButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="List Book">
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Button>
@@ -41,7 +41,7 @@
                      <VBox.margin>
                         <Insets left="5.0" top="15.0" />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Delete Book">
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Delete Book" onAction="#handleDeleteAction" fx:id="deleteButton">
                      <VBox.margin>
                         <Insets left="5.0" top="15.0" />
                      </VBox.margin>
@@ -69,13 +69,14 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="300.0" prefWidth="200.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox prefHeight="300.0" prefWidth="300.0">
                            <children>
                               <ImageView fitHeight="56.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="listButtonLabel" alignment="CENTER" prefHeight="20.0" prefWidth="100.0" text="Label" />
                               <Label alignment="CENTER" prefHeight="20.0" prefWidth="100.0" text="Label" />
-                              <Label alignment="CENTER" prefHeight="20.0" prefWidth="100.0" text="Label" />
+                              <ListView fx:id="listView" prefWidth="200" prefHeight="250" />
                            </children>
                         </VBox>
                      </children>

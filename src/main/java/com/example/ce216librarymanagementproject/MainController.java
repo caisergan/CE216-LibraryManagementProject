@@ -3,22 +3,34 @@ package com.example.ce216librarymanagementproject;
 //In this class we will define all of our methods.
 import com.google.gson.Gson;
 
+import com.google.gson.reflect.TypeToken;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.*;
 
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainController {
+    public Label label1;
+    @FXML
+    private Button listButton;
+
+    @FXML
+    private ListView<Kitap> listView; // Kitapların listelendiği YER
     Gson gson = new Gson();
 
 
@@ -110,6 +122,65 @@ public class MainController {
         }
 
     }
+    public class Kitap {
+        private String name;
+        private String writer;
+
+        // Getter ve Setter metodları
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getWriter() {
+            return writer;
+        }
+
+        public void setWriter(String writer) {
+            this.writer = writer;
+        }
+    }
+
+    @FXML
+    private void initialize() {
+        listButton.setOnAction(event -> updateListViewFromJson());
+    }
+    /*GOOO*/
+    private void updateListViewFromJson() {
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Kitap>>(){}.getType();
+        List<Kitap> kitapList = new ArrayList<>();
+
+        Path path = Paths.get("src", "main", "java", "com", "example", "ce216librarymanagementproject", "data.json");
+
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
+            kitapList = gson.fromJson(reader, type);
+        } catch (IOException e) {
+            System.err.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
+            return;
+        }
+
+        ObservableList<Kitap> items = FXCollections.observableArrayList(kitapList);
+        listView.setItems(items);
+        listView.setCellFactory(param -> new ListCell<Kitap>() {
+            @Override
+            protected void updateItem(Kitap kitap, boolean empty) {
+                super.updateItem(kitap, empty);
+
+                if (empty || kitap == null) {
+                    setText(null);
+                } else {
+                    // Burada Kitap nesnesinin "name" özelliğini görüntülemek için setText kullanılıyor
+                    setText(kitap.getName() + " - " + kitap.getWriter());
+                }
+            }
+        });
+    }
+
+
 
 
     //FXML BUTTON FUNCTIONS WILL BE BELLOW
