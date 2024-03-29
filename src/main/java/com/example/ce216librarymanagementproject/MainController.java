@@ -181,6 +181,34 @@ public class MainController {
     }
 
 
+    @FXML
+    private void handleDeleteAction(ActionEvent event) {
+        int selectedIndex = listView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            listView.getItems().remove(selectedIndex);
+            updateJsonFile(new ArrayList<>(listView.getItems()));
+        }
+    }
+
+
+    private void updateJsonFile(List<MainController.Kitap> kitapList) {
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<MainController.Kitap>>(){}.getType();
+        String json = gson.toJson(kitapList, type);
+
+        Path path = Paths.get("src", "main", "java", "com", "example", "ce216librarymanagementproject", "data.json");
+        try {
+            Files.writeString(path, json, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Hata");
+            alert.setHeaderText("Dosya Güncellenemedi");
+            alert.setContentText("Dosya yazılırken bir hata oluştu: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+
 
 
     //FXML BUTTON FUNCTIONS WILL BE BELLOW
