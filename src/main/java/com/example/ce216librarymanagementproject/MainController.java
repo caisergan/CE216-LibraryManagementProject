@@ -2,17 +2,20 @@ package com.example.ce216librarymanagementproject;
 
 //In this class we will define all of our methods.
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
-import java.awt.print.Book;
 import java.io.File;
 import java.io.IOException;
 import java.io.*;
-import java.lang.reflect.Modifier;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class MainController {
@@ -122,12 +125,31 @@ public class MainController {
 
         //swith scane satırı
     }
+
+    @FXML
+    public void ImportBook(ActionEvent event) throws IOException{
+        FileChooser fileChooser = new FileChooser();
+        File selectedfile = fileChooser.showOpenDialog(null);
+        String FilePath = selectedfile.getAbsolutePath();
+        String FileName = selectedfile.getName();
+
+        Path in= Paths.get(FilePath);
+        Path out = Paths.get(FinalPath+"\\"+FileName);
+        Files.copy(in,out);
+    }
+
+
+
     //FXML BUTTON CODES WILL BE BELLOW
     @FXML
     private Button addbutton;
 
     @FXML
     private Button editbutton;
+
+    @FXML
+    private Button importbutton;
+
 
 
     //FXML FIELD ID WILL BE BELLOW
@@ -169,7 +191,6 @@ public class MainController {
 
     @FXML
     private TextField coverid;
-
 
 
 
