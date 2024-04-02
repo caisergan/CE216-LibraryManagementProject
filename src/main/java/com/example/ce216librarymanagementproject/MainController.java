@@ -16,10 +16,7 @@ import java.io.IOException;
 import java.io.*;
 
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +27,7 @@ public class MainController {
     private Button listButton;
 
     @FXML
-    private ListView<Kitap> listView; // Kitapların listelendiği YER
+    private ListView<BookInformation> listView; // Kitapların listelendiği YER
     Gson gson = new Gson();
 
 
@@ -122,59 +119,43 @@ public class MainController {
         }
 
     }
-    public class Kitap {
-        private String name;
-        private String writer;
 
-        // Getter ve Setter metodları
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getWriter() {
-            return writer;
-        }
-
-        public void setWriter(String writer) {
-            this.writer = writer;
-        }
-    }
 
     @FXML
     private void initialize() {
         listButton.setOnAction(event -> updateListViewFromJson());
     }
-    /*GOOO*/
+
     private void updateListViewFromJson() {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Kitap>>(){}.getType();
-        List<Kitap> kitapList = new ArrayList<>();
+        Type type = new TypeToken<List<BookInformation>>(){}.getType();
+        List<BookInformation> kitapList = new ArrayList<>();
 
-        Path path = Paths.get("src", "main", "java", "com", "example", "ce216librarymanagementproject", "data.json");
+        Path path = Paths.get(FinalPath);
 
-        try (BufferedReader reader = Files.newBufferedReader(path)) {
-            kitapList = gson.fromJson(reader, type);
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path)) {
+            for (Path filePath : directoryStream) {
+                if (Files.isRegularFile(filePath)) {
+                    BookInformation book = readJsonFile(filePath.toString());
+                    kitapList.add(book);
+                }
+            }
         } catch (IOException e) {
             System.err.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
             return;
         }
 
-        ObservableList<Kitap> items = FXCollections.observableArrayList(kitapList);
+        ObservableList<BookInformation> items = FXCollections.observableArrayList(kitapList);
         listView.setItems(items);
-        listView.setCellFactory(param -> new ListCell<Kitap>() {
+        listView.setCellFactory(param -> new ListCell<BookInformation>() {
             @Override
-            protected void updateItem(Kitap kitap, boolean empty) {
+            protected void updateItem(BookInformation kitap, boolean empty) {
                 super.updateItem(kitap, empty);
 
                 if (empty || kitap == null) {
                     setText(null);
                 } else {
-                    // Burada Kitap nesnesinin "name" özelliğini görüntülemek için setText kullanılıyor
-                    setText(kitap.getName() + " - " + kitap.getWriter());
+                    setText(kitap.getTitle());
                 }
             }
         });
@@ -191,26 +172,31 @@ public class MainController {
     }
 
 
-    private void updateJsonFile(List<MainController.Kitap> kitapList) {
-        Gson gson = new Gson();
-        Type type = new TypeToken<List<MainController.Kitap>>(){}.getType();
-        String json = gson.toJson(kitapList, type);
 
-        Path path = Paths.get("src", "main", "java", "com", "example", "ce216librarymanagementproject", "data.json");
-        try {
-            Files.writeString(path, json, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hata");
-            alert.setHeaderText("Dosya Güncellenemedi");
-            alert.setContentText("Dosya yazılırken bir hata oluştu: " + e.getMessage());
-            alert.showAndWait();
+    static String userhome = System.getProperty("user.home");
+    static String fileName = "Libray Storage/";
+    static String FinalPath = userhome + File.separator + fileName;
+    static File createdir = new File(FinalPath);
+
+    private void updateJsonFile(List<BookInformation> kitapList) {
+        Gson gson = new Gson();
+        for (BookInformation book : kitapList) {
+            String fileName = book.getTitle() + ".json";
+            String filePath = FinalPath + File.separator + fileName;
+            String json = gson.toJson(book);
+
+            Path path = Paths.get(filePath);
+            try {
+                Files.writeString(path, json, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Hata");
+                alert.setHeaderText("Dosya Güncellenemedi");
+                alert.setContentText("Dosya yazılırken bir hata oluştu: " + e.getMessage());
+                alert.showAndWait();
+            }
         }
     }
-
-
-
-
 
     //FXML BUTTON FUNCTIONS WILL BE BELLOW
     @FXML
@@ -298,8 +284,8 @@ public class MainController {
 
 
     //Document address created
-    static String userhome=System.getProperty("user.home");
+    /*static String userhome=System.getProperty("user.home");
     static String fileName="Libray Storage/";
     static String FinalPath=userhome+File.separator+fileName;
-    static File createdir=new File(FinalPath);
+    static File createdir=new File(FinalPath);*/
 }
