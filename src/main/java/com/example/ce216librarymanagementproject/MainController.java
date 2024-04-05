@@ -8,8 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +27,19 @@ import java.util.List;
 
 
 public class MainController {
+
+    /*private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void switchToAddBookScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+*/
     public Label label1;
     @FXML
     private Button listButton;
@@ -190,7 +208,7 @@ public class MainController {
 
 
 
-    static String userhome = System.getProperty("user.dir"); // C'de çalıştırmak için .home yazınız
+    static String userhome = System.getProperty("user.home"); // C'de çalıştırmak için .home yazınız  D için user.dir
     static String fileName = "Library Storage/";
     static String FinalPath = userhome + File.separator + fileName;
     static File createdir = new File(FinalPath);
@@ -219,7 +237,7 @@ public class MainController {
     @FXML
     public void addButton(ActionEvent event) throws IOException {
         CreateNewBook();
-        //swith scane satırı
+
     }
 
     @FXML
@@ -253,6 +271,8 @@ public class MainController {
     @FXML
     private Button importbutton;
 
+    @FXML
+    private Button addbuttonMain;
 
 
     //FXML FIELD ID WILL BE BELLOW
