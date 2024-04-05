@@ -166,6 +166,23 @@ public class MainController {
     private void handleDeleteAction(ActionEvent event) {
         int selectedIndex = listView.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
+            BookInformation selectedBook = listView.getItems().get(selectedIndex);
+            String fileName = selectedBook.getTitle() + ".json";
+            String filePath = FinalPath + File.separator + fileName;
+
+            // Delete the JSON file
+            try {
+                Files.deleteIfExists(Paths.get(filePath));
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Failed to delete file");
+                alert.setContentText("An error occurred while deleting the file: " + e.getMessage());
+                alert.showAndWait();
+                return;
+            }
+
+            // Remove the book from the list and update the JSON file
             listView.getItems().remove(selectedIndex);
             updateJsonFile(new ArrayList<>(listView.getItems()));
         }
