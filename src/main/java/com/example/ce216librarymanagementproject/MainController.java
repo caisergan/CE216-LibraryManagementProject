@@ -28,18 +28,7 @@ import java.util.List;
 
 public class MainController {
 
-    /*private Stage stage;
-    private Scene scene;
-    private Parent root;
 
-    public void switchToAddBookScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-*/
     public Label label1;
     @FXML
     private Button listButton;
@@ -60,6 +49,26 @@ public class MainController {
             return null;
         }
     }
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void switchToAddBookScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToEditBookScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("EditBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 
     //METHODS WILL BE BELLOW
@@ -141,6 +150,7 @@ public class MainController {
 
     @FXML
     private void initialize() {
+        listButton = new Button("List Button");
         listButton.setOnAction(event -> updateListViewFromJson());
     }
 
