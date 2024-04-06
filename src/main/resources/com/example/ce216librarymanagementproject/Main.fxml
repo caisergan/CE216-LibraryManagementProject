@@ -43,7 +43,7 @@
                         <Insets left="5.0" top="15.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="editbutton" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Edit Book">
+                  <Button fx:id="editbutton" mnemonicParsing="false" onAction="#switchToEditBookScene" prefHeight="25.0" prefWidth="103.0" text="Edit Book">
                      <VBox.margin>
                         <Insets left="5.0" top="15.0" />
                      </VBox.margin></Button>
