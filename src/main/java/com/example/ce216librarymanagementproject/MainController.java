@@ -32,10 +32,15 @@ public class MainController {
     public Label label1;
     @FXML
     private Button listButton;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
 
     @FXML
     private ListView<BookInformation> listView; // Kitapların listelendiği YER
     Gson gson = new Gson();
+    private EventObject event;
 
 
     private static BookInformation readJsonFile(String filePath) {
@@ -49,9 +54,7 @@ public class MainController {
             return null;
         }
     }
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
     public void switchToAddBookScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
@@ -61,13 +64,6 @@ public class MainController {
         stage.show();
     }
 
-    public void switchToEditBookScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("EditBook.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void switchToListBookScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("ListBook.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -75,6 +71,7 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
 
 
 
@@ -117,42 +114,59 @@ public class MainController {
 
     }
 
-    public void openFile(String fineName){ //objeyi alıp, filename alıp sonra bunu bir pathe çevirip readjsonfile ile book objesi döndürdük
-        String selected=fineName+".json";
-        String path=FinalPath+"/"+selected;
-        BookInformation bookselected= readJsonFile(path);
-        titleid.setText(bookselected.getTitle());
-        subtitleid.setText(bookselected.getSubtitle());
-        translatorid.setText(bookselected.getTranslators());
-        authorsid.setText(bookselected.getAuthors());
-        publisherid.setText(bookselected.getPublisher());
-        tagsid.setText(bookselected.getTags());
-        ratingid.setText(bookselected.getRating());
-        editionid.setText(bookselected.getEdition());
-        categoryid.setText(bookselected.getCategory());
-        langid.setText(bookselected.getLanguage());
-        dateid.setText(bookselected.getDate());
-        isbnid.setText(bookselected.getIsbn());
-        coverid.setText(bookselected.getCover());
-        editFile(bookselected,selected);
-    }
+    static String filePath;
+
+    @FXML
+
+    public void openFile(ActionEvent event) throws IOException { //objeyi alıp, filename alıp sonra bunu bir pathe çevirip readjsonfile ile book objesi döndürdük
+
+        Stage stage =((Stage) ((Node) event.getSource()).getScene().getWindow());
+        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("EditBook.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 800);
 
 
+        int selectedIndex = listView.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            BookInformation selectedBook = listView.getItems().get(selectedIndex);
+            String fileName = selectedBook.getTitle() + ".json";
+            filePath = FinalPath + File.separator + fileName;
 
-    public void editFile(BookInformation book,String newFile){
-        fillBook(book);
-        BookInformation course=new BookInformation();
-        fillBook(course); //fillBook will be a method
-        String newJson = gson.toJson(course); //toJson will be a method
-        File file = new File(FinalPath,newFile);
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(newJson);
-            System.out.println("JSON written to file successfully.");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            BookInformation bookselected= readJsonFile(filePath);
+
+            MainController mainController = fxmlLoader.getController();
+
+            mainController.titleid.setText(bookselected.getTitle());
+            mainController.subtitleid.setText(bookselected.getSubtitle());
+            mainController.translatorid.setText(bookselected.getTranslators());
+            mainController.authorsid.setText(bookselected.getAuthors());
+            mainController.publisherid.setText(bookselected.getPublisher());
+            mainController.tagsid.setText(bookselected.getTags());
+            mainController.ratingid.setText(bookselected.getRating());
+            mainController.editionid.setText(bookselected.getEdition());
+            mainController.categoryid.setText(bookselected.getCategory());
+            mainController.langid.setText(bookselected.getLanguage());
+            mainController.dateid.setText(bookselected.getDate());
+            mainController.isbnid.setText(bookselected.getIsbn());
+            mainController.coverid.setText(bookselected.getCover());
+
         }
+        stage.setScene(scene);
+        stage.show();
+
+
 
     }
+
+    @FXML
+    public void editButton(ActionEvent event) throws IOException {
+
+        File file=new File(filePath);
+        file.delete();
+        CreateNewBook();
+
+    }
+
+
     @FXML
     private void updateListViewFromJson() {
         Gson gson = new Gson();
@@ -249,12 +263,7 @@ public class MainController {
 
     }
 
-    @FXML
-    public void editButton(ActionEvent event) throws IOException {
-        openFile("DENEME ADI"); //openfile düğmeye tıklanarak çağırıldığı için anca sonra çağırılıyor. start gui bittikten sonra ara sahne eklenerek düzeltilecek bu da
 
-        //swith scane satırı
-    }
 
     @FXML
     public void ImportBook(ActionEvent event) throws IOException{
@@ -323,8 +332,6 @@ public class MainController {
 
     @FXML
     private TextField coverid;
-
-
 
 
 

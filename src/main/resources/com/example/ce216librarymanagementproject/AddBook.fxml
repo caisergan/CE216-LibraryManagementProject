@@ -97,6 +97,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="add_back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToListBookScene" prefHeight="65.0" prefWidth="105.0" text="BACK" textAlignment="CENTER" />
                </children>
             </HBox>
          </children>

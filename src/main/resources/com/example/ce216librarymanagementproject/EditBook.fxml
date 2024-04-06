@@ -92,11 +92,12 @@
                 </HBox>
                 <HBox prefHeight="135.0" prefWidth="215.0" VBox.vgrow="NEVER">
                     <children>
-                        <Button fx:id="editbutton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editButton" prefHeight="65.0" prefWidth="105.0" text="SAVE EDIT" textAlignment="CENTER">
+                        <Button fx:id="saveEdit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editButton" prefHeight="65.0" prefWidth="105.0" text="SAVE EDIT" textAlignment="CENTER">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
                         </Button>
+                        <Button fx:id="edit_back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToListBookScene" prefHeight="65.0" prefWidth="105.0" text="BACK" textAlignment="CENTER" />
                     </children>
                 </HBox>
             </children>
