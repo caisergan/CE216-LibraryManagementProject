@@ -146,19 +146,10 @@ public class MainController {
         }
 
     }
-
-
     @FXML
-    private void initialize() {
-        listButton = new Button("List Button");
-        listButton.setOnAction(event -> updateListViewFromJson());
-    }
-
     private void updateListViewFromJson() {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<BookInformation>>(){}.getType();
         List<BookInformation> kitapList = new ArrayList<>();
-
         Path path = Paths.get(FinalPath);
 
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path)) {
@@ -177,13 +168,13 @@ public class MainController {
         listView.setItems(items);
         listView.setCellFactory(param -> new ListCell<BookInformation>() {
             @Override
-            protected void updateItem(BookInformation kitap, boolean empty) {
-                super.updateItem(kitap, empty);
+            protected void updateItem(BookInformation book, boolean empty) {
+                super.updateItem(book, empty);
 
-                if (empty || kitap == null) {
+                if (empty || book == null) {
                     setText(null);
                 } else {
-                    setText(kitap.getTitle());
+                    setText(book.getTitle());
                 }
             }
         });
@@ -218,10 +209,11 @@ public class MainController {
 
 
 
-    static String userhome = System.getProperty("user.home"); // C'de çalıştırmak için .home yazınız  D için user.dir
-    static String fileName = "Library Storage/";
-    static String FinalPath = userhome + File.separator + fileName;
+    static String resourcesPath = "src/main/resources/"; // Projenin kaynak klasörüne işaret eder
+    static String libraryStorageFolder = "Library Storage/";
+    static String FinalPath = resourcesPath + libraryStorageFolder;
     static File createdir = new File(FinalPath);
+
 
     private void updateJsonFile(List<BookInformation> kitapList) {
         Gson gson = new Gson();
