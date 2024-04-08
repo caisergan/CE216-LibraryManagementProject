@@ -13,9 +13,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.embed.swing.SwingFXUtils;
 
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.io.*;
@@ -40,7 +44,7 @@ public class MainController {
     @FXML
     private ListView<BookInformation> listView; // Kitapların listelendiği YER
     Gson gson = new Gson();
-    private EventObject event;
+    //private EventObject event;
 
 
     private static BookInformation readJsonFile(String filePath) {
@@ -75,7 +79,7 @@ public class MainController {
 
 
 
-    //METHODS WILL BE BELLOW
+
     public void CreateNewBook()throws IOException {
 
         createdir.mkdirs();
@@ -93,7 +97,35 @@ public class MainController {
             fileWriter.write(newJson);
             System.out.println("JSON written to file successfully.");
         }
+        // RESİM EKLEME VE KAYDETME
+        String bookTitle = titleid.getText();
+        String imagePath = "src/main/resources/Library Storage/images/" + bookTitle.replace(" ", "_") + ".png";
+
+        if (bookImageView.getImage() != null) {
+            File outputFile = new File(imagePath);
+            try {
+                ImageIO.write(SwingFXUtils.fromFXImage(bookImageView.getImage(), null), "png", outputFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    @FXML
+    private ImageView bookImageView;
+
+    @FXML
+    private void handleSelectImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Resim Seç");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
+        File selectedImage = fileChooser.showOpenDialog(stage);
+        if (selectedImage != null) {
+            bookImageView.setImage(new Image(selectedImage.toURI().toString()));
+        }
+    }
+
     public void fillBook (BookInformation book){
 
         book.setTitle(titleid.getText());
