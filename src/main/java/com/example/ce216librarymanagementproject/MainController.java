@@ -145,7 +145,8 @@ public class MainController {
         //book.setPictures();
 
     }
-
+    @FXML
+    private ImageView EditbookImageView;
     static String filePath;
 
     @FXML
@@ -181,6 +182,14 @@ public class MainController {
             mainController.isbnid.setText(bookselected.getIsbn());
             mainController.coverid.setText(bookselected.getCover());
 
+            String imagePath = "src/main/resources/Library Storage/images/" + bookselected.getTitle().replace(" ", "_") + ".png";
+
+            // Resmi ImageView üzerinde göstermekay
+            File file = new File(imagePath);
+            if (file.exists()) {
+                Image image = new Image(file.toURI().toString());
+                mainController.EditbookImageView.setImage(image);
+            }
         }
         stage.setScene(scene);
         stage.show();
@@ -233,18 +242,22 @@ public class MainController {
         });
     }
 
-
     @FXML
     private void handleDeleteAction(ActionEvent event) {
         int selectedIndex = listView.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
             BookInformation selectedBook = listView.getItems().get(selectedIndex);
-            String fileName = selectedBook.getTitle() + ".json";
-            String filePath = FinalPath + File.separator + fileName;
+            String jsonFileName = selectedBook.getTitle() + ".json";
+            String jsonFilePath = FinalPath + File.separator + jsonFileName;
+            String imageFilePath = "src/main/resources/Library Storage/images/" + selectedBook.getTitle().replace(" ", "_") + ".png"; // Resim dosyası yolu
 
-            // Delete the JSON file
+
             try {
-                Files.deleteIfExists(Paths.get(filePath));
+                // Delete the JSON file
+                Files.deleteIfExists(Paths.get(jsonFilePath));
+
+                // Delete the image file
+                Files.deleteIfExists(Paths.get(imageFilePath));
             } catch (IOException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -365,12 +378,4 @@ public class MainController {
     @FXML
     private TextField coverid;
 
-
-
-
-    //Document address created
-    /*static String userhome=System.getProperty("user.home");
-    static String fileName="Libray Storage/";
-    static String FinalPath=userhome+File.separator+fileName;
-    static File createdir=new File(FinalPath);*/
 }
