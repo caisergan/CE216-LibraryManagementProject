@@ -73,6 +73,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
+                        <Button mnemonicParsing="false" onAction="#switchToMainPage" text="Go to main" />
                         <Button mnemonicParsing="false" onAction="#switchToTableView" text="Go List" />
                      </children></HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" />

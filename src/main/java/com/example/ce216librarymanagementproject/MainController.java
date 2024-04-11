@@ -34,7 +34,6 @@ import java.util.List;
 public class MainController {
 
 
-    public Label label1;
     @FXML
     private Button listButton;
     private Stage stage;
@@ -70,7 +69,7 @@ public class MainController {
     }
 
     public void switchToListBookScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("ListBook.fxml"));
+        root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -79,7 +78,7 @@ public class MainController {
 
     public void switchToMain(ActionEvent event) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("ListBook.fxml"));
+        root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -88,6 +87,13 @@ public class MainController {
 
     public void switchToTableView(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToMainPage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -127,6 +133,7 @@ public class MainController {
                 e.printStackTrace();
             }
         }
+
     }
 
     @FXML
@@ -167,22 +174,19 @@ public class MainController {
     private ImageView EditbookImageView;
     static String filePath;
 
-    @FXML
 
-    public void openFile(ActionEvent event) throws IOException { //objeyi alıp, filename alıp sonra bunu bir pathe çevirip readjsonfile ile book objesi döndürdük
+    @FXML
+    public void editFile(ActionEvent event) throws IOException { //objeyi alıp, filename alıp sonra bunu bir pathe çevirip readjsonfile ile book objesi döndürdük
 
         Stage stage =((Stage) ((Node) event.getSource()).getScene().getWindow());
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("EditBook.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 800);
 
 
-        int selectedIndex = listView.getSelectionModel().getSelectedIndex();
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
-            BookInformation selectedBook = listView.getItems().get(selectedIndex);
-            String fileName = selectedBook.getTitle() + ".json";
-            filePath = FinalPath + File.separator + fileName;
-
-            BookInformation bookselected= readJsonFile(filePath);
+            filePath=FinalPath+tableView.getItems().get(selectedIndex).title;
+            BookInformation bookselected = tableView.getItems().get(selectedIndex);
 
             MainController mainController = fxmlLoader.getController();
 
@@ -208,21 +212,17 @@ public class MainController {
                 Image image = new Image(file.toURI().toString());
                 mainController.bookImageView.setImage(image);
             }
+            stage.setScene(scene);
+            stage.show();
         }
-        stage.setScene(scene);
-        stage.show();
-
-
 
     }
 
     @FXML
     public void editButton(ActionEvent event) throws IOException {
-
         File file=new File(filePath);
         file.delete();
         CreateNewBook();
-
     }
 
 
@@ -262,9 +262,9 @@ public class MainController {
 
     @FXML
     private void handleDeleteAction(ActionEvent event) {
-        int selectedIndex = listView.getSelectionModel().getSelectedIndex();
+        int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
-            BookInformation selectedBook = listView.getItems().get(selectedIndex);
+            BookInformation selectedBook = tableView.getItems().get(selectedIndex);
             String jsonFileName = selectedBook.getTitle() + ".json";
             String jsonFilePath = FinalPath + File.separator + jsonFileName;
             String imageFilePath = "src/main/resources/Library Storage/images/" + selectedBook.getTitle().replace(" ", "_") + ".png"; // Resim dosyası yolu
@@ -286,8 +286,8 @@ public class MainController {
             }
 
             // Remove the book from the list and update the JSON file
-            listView.getItems().remove(selectedIndex);
-            updateJsonFile(new ArrayList<>(listView.getItems()));
+            tableView.getItems().remove(selectedIndex);
+            updateJsonFile(new ArrayList<>(tableView.getItems()));
         }
     }
 
@@ -323,6 +323,8 @@ public class MainController {
     @FXML
     public void addButton(ActionEvent event) throws IOException {
         CreateNewBook();
+        switchToTableView(event);
+
 
     }
 
@@ -357,7 +359,6 @@ public class MainController {
             return;
         }
 
-
         ObservableList<BookInformation> items = FXCollections.observableArrayList(kitapList);
         tableView.setItems(items);
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -372,7 +373,6 @@ public class MainController {
         editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
         ratingCol.setCellValueFactory(new PropertyValueFactory<>("rating"));
         tagsCol.setCellValueFactory(new PropertyValueFactory<>("tags"));
-
     }
 
     public void FilterByTags() {
@@ -384,9 +384,7 @@ public class MainController {
             FillTableView();
             return;
         }
-
         String[] tagArray = tags.toLowerCase().split(",");
-
         for (BookInformation book : tableView.getItems()) {
             for (String tag : tagArray) {
                 if (book.getTags().contains(tag.trim())) {
@@ -398,11 +396,8 @@ public class MainController {
         tableView.setItems(filteredList);
     }
 
-
-
     @FXML
     private TextField searchBox;
-
     @FXML
     private TableView<BookInformation> tableView;
     @FXML
@@ -485,5 +480,4 @@ public class MainController {
 
     @FXML
     private TextField coverid;
-
 }

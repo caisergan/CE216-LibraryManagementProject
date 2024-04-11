@@ -30,10 +30,22 @@
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openFile" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete" />
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#switchToMain" text="Back" />
+                  <Button mnemonicParsing="false" onAction="#editFile" text="Edit">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#switchToAddBookScene" text="Add">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#switchToMain" text="Back">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin></Button>
                </children>
                <VBox.margin>
                   <Insets />

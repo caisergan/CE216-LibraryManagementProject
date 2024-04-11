@@ -13,16 +13,32 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/CE216-LibraryManagementProject-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/CE216-LibraryManagementProject-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/AGİLE WEB DEVELOPMENT WİTH RAİLS.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/HELLOWORDL.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/SELAM.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/crypto book.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Crypto_Book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Rich_Dad_Poor_dad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Selfish_Gene.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Sokaklardan_Bir_Ali.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/selam.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/AddBook.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/EditBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/EditBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/rich dad poor dad.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/selfish gene.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/sokaklardan bir ali.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/ListBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/ListBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +110,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mrker/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/EGE/Downloads/CE216-LibraryManagementProject/CE216-LibraryManagementProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -109,6 +125,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\EGE\IdeaProjects\CE216-LibraryManagementProject\src\main\resources\Library Storage" />
+      <recent name="C:\Users\EGE\IdeaProjects\CE216-LibraryManagementProject\src\main\resources\com\example\ce216librarymanagementproject" />
       <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\resources\com\example\ce216librarymanagementproject" />
       <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\java\com\example\ce216librarymanagementproject" />
     </key>
@@ -140,6 +158,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
       </set>
     </attachedChunks>
   </component>
