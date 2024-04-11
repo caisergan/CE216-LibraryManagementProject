@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="605.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+   <children>
+      <VBox prefHeight="613.0" prefWidth="986.0">
+         <children>
+            <HBox prefHeight="85.0" prefWidth="600.0">
+               <children>
+                  <ComboBox prefHeight="25.0" prefWidth="111.0" promptText="Tags">
+                     <HBox.margin>
+                        <Insets left="15.0" top="30.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="searchBox" prefHeight="25.0" prefWidth="292.0">
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" top="30.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#FilterByTags" prefHeight="25.0" prefWidth="83.0" text="Search">
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#FillTableView" text="List">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openFile" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete" />
+                  <Button mnemonicParsing="false" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#switchToMain" text="Back" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="534.0" prefWidth="868.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="521.0" prefWidth="985.0">
+                    <columns>
+                      <TableColumn fx:id="titleCol" prefWidth="75.0" text="TITLE" />
+                      <TableColumn fx:id="subtitleCol" prefWidth="75.0" text="SUBTITLE" />
+                        <TableColumn fx:id="translatorCol" prefWidth="75.0" text="TRANSLATOR" />
+                        <TableColumn fx:id="authorsCol" prefWidth="75.0" text="AUTHOR" />
+                        <TableColumn fx:id="publisherCol" prefWidth="75.0" text="PUBLISHER" />
+                        <TableColumn fx:id="tagsCol" prefWidth="75.0" text="TAGS" />
+                        <TableColumn fx:id="ratingCol" prefWidth="75.0" text="RATING" />
+                        <TableColumn fx:id="editionCol" prefWidth="75.0" text="EDITION" />
+                        <TableColumn fx:id="categoryCol" prefWidth="75.0" text="CATEGORY" />
+                        <TableColumn fx:id="languageCol" prefWidth="75.0" text="LANGUAGE" />
+                        <TableColumn fx:id="dateCol" prefWidth="75.0" text="DATE" />
+                        <TableColumn fx:id="isbnCol" prefWidth="75.0" text="ISBN" />
+                    </columns>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TableView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

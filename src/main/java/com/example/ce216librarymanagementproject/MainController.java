@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -70,6 +71,23 @@ public class MainController {
 
     public void switchToListBookScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("ListBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToMain(ActionEvent event) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("ListBook.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToTableView(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -321,6 +339,96 @@ public class MainController {
         Path out = Paths.get(FinalPath+"\\"+FileName);
         Files.copy(in,out);
     }
+
+    @FXML
+    public void FillTableView(){
+        List<BookInformation> kitapList = new ArrayList<>();
+        Path path = Paths.get(FinalPath);
+
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path)) {
+            for (Path filePath : directoryStream) {
+                if (Files.isRegularFile(filePath)) {
+                    BookInformation book = readJsonFile(filePath.toString());
+                    kitapList.add(book);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
+            return;
+        }
+
+
+        ObservableList<BookInformation> items = FXCollections.observableArrayList(kitapList);
+        tableView.setItems(items);
+        titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        subtitleCol.setCellValueFactory(new PropertyValueFactory<>("subtitle"));
+        translatorCol.setCellValueFactory(new PropertyValueFactory<>("translators"));
+        authorsCol.setCellValueFactory(new PropertyValueFactory<>("authors"));
+        publisherCol.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        languageCol.setCellValueFactory(new PropertyValueFactory<>("language"));
+        categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
+        editionCol.setCellValueFactory(new PropertyValueFactory<>("edition"));
+        ratingCol.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        tagsCol.setCellValueFactory(new PropertyValueFactory<>("tags"));
+
+    }
+
+    public void FilterByTags() {
+        FillTableView();
+        ObservableList<BookInformation> filteredList = FXCollections.observableArrayList();
+
+        String tags = searchBox.getText();
+        if (tags == null || tags.isEmpty()) {
+            FillTableView();
+            return;
+        }
+
+        String[] tagArray = tags.toLowerCase().split(",");
+
+        for (BookInformation book : tableView.getItems()) {
+            for (String tag : tagArray) {
+                if (book.getTags().contains(tag.trim())) {
+                    filteredList.add(book);
+                    break;
+                }
+            }
+        }
+        tableView.setItems(filteredList);
+    }
+
+
+
+    @FXML
+    private TextField searchBox;
+
+    @FXML
+    private TableView<BookInformation> tableView;
+    @FXML
+    private TableColumn<BookInformation, String> titleCol;
+    @FXML
+    private TableColumn<BookInformation, String> subtitleCol;
+    @FXML
+    private TableColumn<BookInformation, String> translatorCol;
+    @FXML
+    private TableColumn<BookInformation, String> authorsCol;
+    @FXML
+    private TableColumn<BookInformation, String> publisherCol;
+    @FXML
+    private TableColumn<BookInformation, String> dateCol;
+    @FXML
+    private TableColumn<BookInformation, String> isbnCol;
+    @FXML
+    private TableColumn<BookInformation, String> languageCol;
+    @FXML
+    private TableColumn<BookInformation, String> categoryCol;
+    @FXML
+    private TableColumn<BookInformation, String> editionCol;
+    @FXML
+    private TableColumn<BookInformation, String> ratingCol;
+    @FXML
+    private TableColumn<BookInformation, String> tagsCol;
 
 
 
