@@ -91,9 +91,9 @@
                         <Insets />
                     </VBox.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="214.0" prefWidth="219.0">
+                  <Button mnemonicParsing="false" prefHeight="214.0" prefWidth="219.0" onAction="#handleSelectImage">
                      <graphic>
-                        <ImageView fx:id="EditbookImageView" fitHeight="235.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="bookImageView" fitHeight="235.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
                </children>

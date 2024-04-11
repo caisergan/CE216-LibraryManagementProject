@@ -83,7 +83,7 @@ public class MainController {
     public void CreateNewBook()throws IOException {
 
         createdir.mkdirs();
-        String title=titleid.getText().toUpperCase(); //titleID ile bahsedilen GUI'deki textfield kısmının id is olacak.
+        String title=titleid.getText().toLowerCase(); //titleID ile bahsedilen GUI'deki textfield kısmının id is olacak.
         String newFile;
         newFile= title+".json";
 
@@ -188,7 +188,7 @@ public class MainController {
             File file = new File(imagePath);
             if (file.exists()) {
                 Image image = new Image(file.toURI().toString());
-                mainController.EditbookImageView.setImage(image);
+                mainController.bookImageView.setImage(image);
             }
         }
         stage.setScene(scene);
