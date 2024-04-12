@@ -60,7 +60,7 @@ public class MainController {
     }
 
 
-    public void switchToAddBookScene(ActionEvent event) throws IOException {
+    public void switchToAddBookScene(ActionEvent event) throws IOException {//switch add book scene
         root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -68,7 +68,7 @@ public class MainController {
         stage.show();
     }
 
-    public void switchToListBookScene(ActionEvent event) throws IOException {
+    public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -85,14 +85,14 @@ public class MainController {
         stage.show();
     }
 
-    public void switchToTableView(ActionEvent event) throws IOException {
+    public void switchToTableView(ActionEvent event) throws IOException { //use in add button
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToMainPage(ActionEvent event) throws IOException {
+    public void switchToMainPage(ActionEvent event) throws IOException {//swith main page
         root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

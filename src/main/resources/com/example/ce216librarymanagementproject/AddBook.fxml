@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="161.0">
          <children>
@@ -91,9 +88,9 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="221.0" prefWidth="230.0"  onAction="#handleSelectImage">
+                  <Button mnemonicParsing="false" onAction="#handleSelectImage" prefHeight="221.0" prefWidth="230.0">
                      <graphic>
-                        <ImageView fitHeight="247.0" fitWidth="194.0" pickOnBounds="true" preserveRatio="true" fx:id="bookImageView" />
+                        <ImageView fx:id="bookImageView" fitHeight="247.0" fitWidth="194.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
                </children>
@@ -102,7 +99,7 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="add_back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToListBookScene" prefHeight="65.0" prefWidth="105.0" text="BACK" textAlignment="CENTER" />
+                        <Button fx:id="add_back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMainPage" prefHeight="65.0" prefWidth="105.0" text="BACK" textAlignment="CENTER" />
                      </children>
                      <padding>
                         <Insets right="12.0" />
