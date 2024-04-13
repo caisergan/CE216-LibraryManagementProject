@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -259,6 +260,95 @@ public class MainController {
             }
         });
     }
+    private static ObservableList<BookInformation> bookList = FXCollections.observableArrayList();
+
+    private void loadBooksFromJson() {
+        File folder = new File("src/main/resources/Library Storage");
+        File[] listOfFiles = folder.listFiles();
+
+        if (listOfFiles != null) {
+            for (File file : listOfFiles) {
+                if (file.isFile() && file.getName().endsWith(".json")) {
+                    // Her bir dosya için JSON içeriğini bir BookInformation nesnesine dönüştür
+                    try (Reader reader = new FileReader(file)) {
+                        BookInformation bookInfo = new Gson().fromJson(reader, BookInformation.class);
+                        bookList.add(bookInfo);
+                    } catch (FileNotFoundException e) {
+                        System.err.println("The JSON file was not found: " + file.getPath());
+                    } catch (IOException e) {
+                        System.err.println("An error occurred while reading the JSON file: " + file.getPath());
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            System.err.println("The directory was not found: " + folder.getPath());
+        }
+    }
+
+    private void updateUIWithBooks() {
+
+        if (bookList.size() > 0) {
+            BookInformation firstBook = bookList.get(0);
+            bookTitle1.setText(firstBook.getTitle());
+            bookAuthor1.setText(firstBook.getAuthors());
+            String imagePath = "src/main/resources/Library Storage/images/" + firstBook.title.replace(" ", "_").toUpperCase() + ".png";
+            Image image = new Image(new File(imagePath).toURI().toString());
+            bookImage1.setImage(image);
+        }
+
+        if (bookList.size() > 1) {
+            BookInformation secondBook = bookList.get(1);
+            bookTitle2.setText(secondBook.getTitle());
+            bookAuthor2.setText(secondBook.getAuthors());
+            String imagePath2 = "src/main/resources/Library Storage/images/" + secondBook.title.replace(" ", "_").toUpperCase() + ".png";
+            Image image2 = new Image(new File(imagePath2).toURI().toString());
+            bookImage2.setImage(image2);
+        }
+
+        if (bookList.size() > 2) {
+            BookInformation thirdBook = bookList.get(2);
+            bookTitle3.setText(thirdBook.getTitle());
+            bookAuthor3.setText(thirdBook.getAuthors());
+            String imagePath3 = "src/main/resources/Library Storage/images/" + thirdBook.title.replace(" ", "_").toUpperCase() + ".png";
+            Image image3 = new Image(new File(imagePath3).toURI().toString());
+            bookImage3.setImage(image3);
+        }
+
+        if (bookList.size() > 3) {
+            BookInformation fourthBook = bookList.get(3);
+            bookTitle4.setText(fourthBook.getTitle());
+            bookAuthor4.setText(fourthBook.getAuthors());
+            String imagePath4 = "src/main/resources/Library Storage/images/" + fourthBook.title.replace(" ", "_").toUpperCase() + ".png";
+            Image image4 = new Image(new File(imagePath4).toURI().toString());
+            bookImage4.setImage(image4);
+        }
+
+    }
+    @FXML
+    public void initialize() {
+        Task<Void> loadTask = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                loadBooksFromJson(); // Kitapları yükleyen metod
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                updateUIWithBooks(); // UI güncelleme
+            }
+
+            @Override
+            protected void failed() {
+                getException().printStackTrace();
+            }
+        };
+
+        Thread thread = new Thread(loadTask);
+        thread.setDaemon(true);
+        thread.start();
+    }
 
     @FXML
     private void handleDeleteAction(ActionEvent event) {
@@ -480,4 +570,28 @@ public class MainController {
 
     @FXML
     private TextField coverid;
+    @FXML
+    private ImageView bookImage1;
+    @FXML
+    private Label bookTitle1;
+    @FXML
+    private Label bookAuthor1;
+    @FXML
+    private ImageView bookImage2;
+    @FXML
+    private Label bookTitle2;
+    @FXML
+    private Label bookAuthor2;
+    @FXML
+    private ImageView bookImage3;
+    @FXML
+    private Label bookTitle3;
+    @FXML
+    private Label bookAuthor3;
+    @FXML
+    private ImageView bookImage4;
+    @FXML
+    private Label bookTitle4;
+    @FXML
+    private Label bookAuthor4;
 }
