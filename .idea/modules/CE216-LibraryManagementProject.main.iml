@@ -19,5 +19,6 @@
     <orderEntry type="library" name="Gradle: org.openjfx:javafx-base:win:17.0.6" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:23.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.10" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>

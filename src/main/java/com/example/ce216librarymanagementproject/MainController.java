@@ -286,45 +286,37 @@ public class MainController {
         }
     }
 
-    private void updateUIWithBooks() {
-
+    private void updateUI() {
         if (bookList.size() > 0) {
-            BookInformation firstBook = bookList.get(0);
-            bookTitle1.setText(firstBook.getTitle());
-            bookAuthor1.setText(firstBook.getAuthors());
-            String imagePath = "src/main/resources/Library Storage/images/" + firstBook.title.replace(" ", "_").toUpperCase() + ".png";
-            Image image = new Image(new File(imagePath).toURI().toString());
-            bookImage1.setImage(image);
+            updateBookUI(bookList.get(0), bookImage1, bookTitle1, bookAuthor1);
         }
-
         if (bookList.size() > 1) {
-            BookInformation secondBook = bookList.get(1);
-            bookTitle2.setText(secondBook.getTitle());
-            bookAuthor2.setText(secondBook.getAuthors());
-            String imagePath2 = "src/main/resources/Library Storage/images/" + secondBook.title.replace(" ", "_").toUpperCase() + ".png";
-            Image image2 = new Image(new File(imagePath2).toURI().toString());
-            bookImage2.setImage(image2);
+            updateBookUI(bookList.get(1), bookImage2, bookTitle2, bookAuthor2);
         }
-
         if (bookList.size() > 2) {
-            BookInformation thirdBook = bookList.get(2);
-            bookTitle3.setText(thirdBook.getTitle());
-            bookAuthor3.setText(thirdBook.getAuthors());
-            String imagePath3 = "src/main/resources/Library Storage/images/" + thirdBook.title.replace(" ", "_").toUpperCase() + ".png";
-            Image image3 = new Image(new File(imagePath3).toURI().toString());
-            bookImage3.setImage(image3);
+            updateBookUI(bookList.get(2), bookImage3, bookTitle3, bookAuthor3);
         }
-
         if (bookList.size() > 3) {
-            BookInformation fourthBook = bookList.get(3);
-            bookTitle4.setText(fourthBook.getTitle());
-            bookAuthor4.setText(fourthBook.getAuthors());
-            String imagePath4 = "src/main/resources/Library Storage/images/" + fourthBook.title.replace(" ", "_").toUpperCase() + ".png";
-            Image image4 = new Image(new File(imagePath4).toURI().toString());
-            bookImage4.setImage(image4);
+            updateBookUI(bookList.get(3), bookImage4, bookTitle4, bookAuthor4);
         }
-
     }
+
+    private void updateBookUI(BookInformation book, ImageView imageView, Label titleLabel, Label authorLabel) {
+        titleLabel.setText(book.getTitle());
+        authorLabel.setText(book.getAuthors());
+        String formattedTitle = book.getTitle().replace(" ", "_").toUpperCase() + ".png";
+        String imagePath = "src/main/resources/Library Storage/images/" + formattedTitle;
+
+        try {
+            Image image = new Image(new File(imagePath).toURI().toString());
+            imageView.setImage(image);
+        } catch (Exception e) {
+            System.err.println("Image load error for " + imagePath + ": " + e.getMessage());
+            // Hata durumunda alternatif bir resim yükleyebilir veya resim yükleme hatasını görsel olarak işaretleyebilirsiniz.
+            imageView.setImage(new Image("file:src/main/resources/Library Storage/images/default.png")); // Varsayılan resim yolu
+        }
+    }
+
     @FXML
     public void initialize() {
         Task<Void> loadTask = new Task<Void>() {
@@ -336,7 +328,7 @@ public class MainController {
 
             @Override
             protected void succeeded() {
-                updateUIWithBooks(); // UI güncelleme
+                updateUI(); // UI güncelleme
             }
 
             @Override
