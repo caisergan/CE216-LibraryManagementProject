@@ -4,17 +4,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="605.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<AnchorPane prefHeight="605.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
         <VBox prefHeight="613.0" prefWidth="986.0">
             <children>
                 <HBox prefHeight="85.0" prefWidth="600.0">
                     <children>
-                        <ComboBox prefHeight="25.0" prefWidth="111.0" promptText="Tags">
+                        <Button mnemonicParsing="false" onAction="#FillTableView" prefHeight="25.0" prefWidth="99.0" text="List">
                             <HBox.margin>
-                                <Insets left="15.0" top="30.0" />
+                                <Insets left="10.0" top="30.0" />
                             </HBox.margin>
-                        </ComboBox>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#switchToAddBookScene" prefHeight="25.0" prefWidth="60.0" text="Add">
+                            <HBox.margin>
+                                <Insets left="10.0" top="30.0" />
+                            </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#editFile" prefHeight="25.0" prefWidth="60.0" text="Edit">
+                            <HBox.margin>
+                                <Insets left="10.0" top="30.0" />
+                            </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#handleDeleteAction" prefHeight="25.0" prefWidth="60.0" text="Delete">
+                            <HBox.margin>
+                                <Insets left="10.0" top="30.0" />
+                            </HBox.margin></Button>
                         <TextField fx:id="searchBox" prefHeight="25.0" prefWidth="292.0">
                             <HBox.margin>
                                 <Insets left="15.0" right="15.0" top="30.0" />
@@ -25,26 +37,9 @@
                                 <Insets top="30.0" />
                             </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#FillTableView" text="List">
-                            <HBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#editFile" text="Edit">
-                            <HBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </HBox.margin></Button>
-                        <Button mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete">
-                            <HBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </HBox.margin></Button>
-                        <Button mnemonicParsing="false" onAction="#switchToAddBookScene" text="Add">
-                            <HBox.margin>
-                                <Insets left="10.0" top="30.0" />
-                            </HBox.margin></Button>
                         <Button mnemonicParsing="false" onAction="#switchToMainPage" text="Back">
                             <HBox.margin>
-                                <Insets left="10.0" top="30.0" />
+                                <Insets left="170.0" top="30.0" />
                             </HBox.margin></Button>
                     </children>
                     <VBox.margin>
