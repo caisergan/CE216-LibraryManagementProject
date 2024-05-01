@@ -508,26 +508,30 @@ static {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JSON Files", "*.json")
         );
-        File selectedFile = fileChooser.showSaveDialog(new Stage());
+        BookInformation selectedBook = tableView.getSelectionModel().getSelectedItem();
 
-        if (selectedFile != null) {
-            BookInformation selectedBook = tableView.getSelectionModel().getSelectedItem();
+        if (selectedBook != null) {
+            String suggestedFileName = selectedBook.getTitle() + ".json";
+            fileChooser.setInitialFileName(suggestedFileName);
 
-            if (selectedBook != null) {
+            File selectedFile = fileChooser.showSaveDialog(new Stage());
+
+            if (selectedFile != null) {
                 Gson gson = new GsonBuilder().setPrettyPrinting().create();
                 String json = gson.toJson(selectedBook);
                 try (FileWriter writer = new FileWriter(selectedFile)) {
                     writer.write(json);
                 }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning");
-                alert.setHeaderText("No book selected");
-                alert.setContentText("Please select a book to export.");
-                alert.showAndWait();
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("No book selected");
+            alert.setContentText("Please select a book to export.");
+            alert.showAndWait();
         }
     }
+
 
 
     @FXML
