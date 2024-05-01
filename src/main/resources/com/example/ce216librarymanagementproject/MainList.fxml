@@ -32,7 +32,10 @@
                         <Insets left="10.0" top="30.0" />
                     </HBox.margin>
                 </Button>
-            <Button fx:id="exportid" mnemonicParsing="false" onAction="#ExportBook" text="Export" />
+            <Button fx:id="exportid" mnemonicParsing="false" onAction="#ExportBook" text="Export">
+               <HBox.margin>
+                  <Insets left="10.0" top="30.0" />
+               </HBox.margin></Button>
                 <TextField fx:id="searchBox" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets left="15.0" right="15.0" top="30.0" />
