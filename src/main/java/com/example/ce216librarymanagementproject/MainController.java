@@ -348,6 +348,7 @@ public class MainController {
             @Override
             protected Void call() throws Exception {
                 loadBooksFromJson(); // Kitapları JSON'dan yükleyen metod
+                FillTableView();
                 return null;
             }
 
