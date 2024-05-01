@@ -31,6 +31,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static javafx.application.Application.launch;
@@ -183,6 +184,10 @@ public class MainController {
 
         //book.setPictures();
 
+        String bookTitle = titleid.getText();
+        String imagePath = FinalPath+"images/" + bookTitle.replace(" ", "_") + ".png";
+        book.setPictures(imagePath);
+
     }
     @FXML
     private ImageView EditbookImageView;
@@ -300,25 +305,44 @@ public class MainController {
     }
 
     private void updateUI() {
-        if (bookList.size() > 0) {
-            updateBookUI(bookList.get(0), bookImage1, bookTitle1, bookAuthor1);
+        // En yüksek dereceli kitapları tutacak liste
+        List<BookInformation> topBooks = new ArrayList<>();
+
+        // Tüm kitapları kendi ratinglerine göre sırala (yüksekten düşüğe)
+        Collections.sort(bookList, (book1, book2) -> {
+            int rating1 = Integer.parseInt(book1.getRating());
+            int rating2 = Integer.parseInt(book2.getRating());
+            return Integer.compare(rating2, rating1); // Ters sıralama için rating2, rating1
+        });
+
+        // En yüksek dereceli 4 veya daha az kitabı topBooks listesine ekle
+        int count = Math.min(4, bookList.size());
+        for (int i = 0; i < count; i++) {
+            topBooks.add(bookList.get(i));
         }
-        if (bookList.size() > 1) {
-            updateBookUI(bookList.get(1), bookImage2, bookTitle2, bookAuthor2);
+
+
+
+        if (topBooks.size() > 0) {
+            updateBookUI(topBooks.get(0), bookImage1, bookTitle1, bookAuthor1);
         }
-        if (bookList.size() > 2) {
-            updateBookUI(bookList.get(2), bookImage3, bookTitle3, bookAuthor3);
+        if (topBooks.size() > 1) {
+            updateBookUI(topBooks.get(1), bookImage2, bookTitle2, bookAuthor2);
         }
-        if (bookList.size() > 3) {
-            updateBookUI(bookList.get(3), bookImage4, bookTitle4, bookAuthor4);
+        if (topBooks.size() > 2) {
+            updateBookUI(topBooks.get(2), bookImage3, bookTitle3, bookAuthor3);
         }
+        if (topBooks.size() > 3) {
+            updateBookUI(topBooks.get(3), bookImage4, bookTitle4, bookAuthor4);
+        }
+        topBooks.clear();
+        bookList.clear();
     }
 
     private void updateBookUI(BookInformation book, ImageView imageView, Label titleLabel, Label authorLabel) {
         titleLabel.setText(book.getTitle());
         authorLabel.setText(book.getAuthors());
-        String formattedTitle = book.getTitle().replace(" ", "_").toUpperCase() + ".png";
-        String imagePath = FinalPath+"images/" + formattedTitle;
+        String imagePath = book.getPictures();
 
         try {
             Image image = new Image(new File(imagePath).toURI().toString());
@@ -348,7 +372,6 @@ public class MainController {
             @Override
             protected Void call() throws Exception {
                 loadBooksFromJson(); // Kitapları JSON'dan yükleyen metod
-                FillTableView();
                 return null;
             }
 

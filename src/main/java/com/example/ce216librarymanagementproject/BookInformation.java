@@ -140,7 +140,7 @@ public class BookInformation {
         this.language =  " ";
         this.category =  " ";
         this.edition =  " ";
-        this.rating =  " ";
+        this.rating =  "0";
         this.tags =  " ";
         this.pictures =  " ";
     }
