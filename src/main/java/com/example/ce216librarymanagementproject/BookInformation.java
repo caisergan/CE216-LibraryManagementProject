@@ -8,7 +8,6 @@ public class BookInformation {
     String publisher;
     String date;
     String isbn;
-    String  cover;
     String language;
     String category;
     String edition;
@@ -72,13 +71,6 @@ public class BookInformation {
         this.isbn = isbn;
     }
 
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
 
     public String getLanguage() {
         return language;
@@ -136,7 +128,6 @@ public class BookInformation {
         this.publisher =  " ";
         this.date =  " ";
         this.isbn =  " ";
-        this.cover = " ";
         this.language =  " ";
         this.category =  " ";
         this.edition =  " ";
@@ -154,7 +145,6 @@ public class BookInformation {
                 ", Publisher'" + publisher + '\'' +
                 ", Date:'" + date + '\'' +
                 ", ISBN:'" + isbn + '\'' +
-                ", Cover:'" + cover + '\'' +
                 ", Language:'" + language + '\'' +
                 ", Category:'" + category + '\'' +
                 ", Edition:'" + edition + '\'' +

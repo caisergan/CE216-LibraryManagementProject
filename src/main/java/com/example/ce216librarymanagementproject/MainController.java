@@ -181,7 +181,7 @@ public class MainController {
         book.setLanguage(langid.getText());
         book.setDate(dateid.getText());
         book.setIsbn(isbnid.getText());
-        book.setCover(coverid.getText());
+
 
         //book.setPictures();
 
@@ -222,7 +222,7 @@ public class MainController {
             mainController.langid.setText(bookselected.getLanguage());
             mainController.dateid.setText(bookselected.getDate());
             mainController.isbnid.setText(bookselected.getIsbn());
-            mainController.coverid.setText(bookselected.getCover());
+
 
             String imagePath = FinalPath + "images/" + bookselected.getTitle().replace(" ", "_") + ".png";
 
@@ -672,8 +672,7 @@ static {
     @FXML
     private TextField translatorid;
 
-    @FXML
-    private TextField coverid;
+
     @FXML
     private ImageView bookImage1;
     @FXML

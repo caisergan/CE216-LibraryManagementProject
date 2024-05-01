@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <HBox alignment="CENTER" fillHeight="false" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
         <VBox alignment="CENTER" spacing="20.0">
@@ -51,11 +50,7 @@
         </VBox>
         <VBox alignment="CENTER" spacing="20.0">
             <children>
-                <HBox>
-                    <children>
-                        <TextField fx:id="coverid" alignment="CENTER" promptText="Cover" />
-                    </children>
-                </HBox>
+                <HBox />
                 <HBox>
                     <children>
                         <TextField fx:id="langid" alignment="CENTER" promptText="Languages" />
