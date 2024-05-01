@@ -235,11 +235,11 @@ public class MainController {
             stage.setScene(scene);
             stage.show();
         }
-
     }
 
     @FXML
     public void editButton(ActionEvent event) throws IOException {
+        filePath=filePath+".json";
         File file=new File(filePath);
         file.delete();
         CreateNewBook();
@@ -478,15 +478,6 @@ static {
         }
     }
 
-    //FXML BUTTON FUNCTIONS WILL BE BELLOW
-    @FXML
-    public void addButton(ActionEvent event) throws IOException {
-        CreateNewBook();
-        switchToTableView(event);
-
-
-    }
-
 
 
     @FXML
@@ -586,6 +577,15 @@ static {
             }
         }
         tableView.setItems(filteredList);
+    }
+
+    //FXML BUTTON FUNCTIONS WILL BE BELLOW
+    @FXML
+    public void addButton(ActionEvent event) throws IOException {
+        CreateNewBook();
+        switchToTableView(event);
+
+
     }
 
     @FXML
