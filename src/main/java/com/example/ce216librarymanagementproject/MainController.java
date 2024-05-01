@@ -4,6 +4,8 @@ package com.example.ce216librarymanagementproject;
 import com.google.gson.Gson;
 
 import com.google.gson.reflect.TypeToken;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -30,6 +32,8 @@ import java.lang.reflect.Type;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static javafx.application.Application.launch;
 
 
 public class MainController {
@@ -62,19 +66,23 @@ public class MainController {
 
 
     public void switchToAddBookScene(ActionEvent event) throws IOException {//switch add book scene
+        activeFXML = "AddBook.fxml";
         root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
+        activeFXML = "MainList.fxml";
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void switchToMain(ActionEvent event) throws IOException {
@@ -84,23 +92,28 @@ public class MainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void switchToTableView(ActionEvent event) throws IOException { //use in add button
+        activeFXML = "MainList.fxml";
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
     public void switchToMainPage(ActionEvent event) throws IOException {//swith main page
+        activeFXML = "MainPage.fxml";
         root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
 
+
+    }
 
 
 
@@ -124,7 +137,7 @@ public class MainController {
         }
         // RESİM EKLEME VE KAYDETME
         String bookTitle = titleid.getText();
-        String imagePath = "src/main/resources/Library Storage/images/" + bookTitle.replace(" ", "_") + ".png";
+        String imagePath = FinalPath+"images/" + bookTitle.replace(" ", "_") + ".png";
 
         if (bookImageView.getImage() != null) {
             File outputFile = new File(imagePath);
@@ -205,7 +218,7 @@ public class MainController {
             mainController.isbnid.setText(bookselected.getIsbn());
             mainController.coverid.setText(bookselected.getCover());
 
-            String imagePath = "src/main/resources/Library Storage/images/" + bookselected.getTitle().replace(" ", "_") + ".png";
+            String imagePath = FinalPath + "images/" + bookselected.getTitle().replace(" ", "_") + ".png";
 
             // Resmi ImageView üzerinde göstermekay
             File file = new File(imagePath);
@@ -263,7 +276,7 @@ public class MainController {
     private static ObservableList<BookInformation> bookList = FXCollections.observableArrayList();
 
     private void loadBooksFromJson() {
-        File folder = new File("src/main/resources/Library Storage");
+        File folder = new File(FinalPath);
         File[] listOfFiles = folder.listFiles();
 
         if (listOfFiles != null) {
@@ -305,7 +318,7 @@ public class MainController {
         titleLabel.setText(book.getTitle());
         authorLabel.setText(book.getAuthors());
         String formattedTitle = book.getTitle().replace(" ", "_").toUpperCase() + ".png";
-        String imagePath = "src/main/resources/Library Storage/images/" + formattedTitle;
+        String imagePath = FinalPath+"images/" + formattedTitle;
 
         try {
             Image image = new Image(new File(imagePath).toURI().toString());
@@ -317,12 +330,24 @@ public class MainController {
         }
     }
 
-    @FXML
+    // Hangi FXML dosyasının aktif olduğunu belirleyen değişken
+
+
+
+
+
+    private static String activeFXML = "";
+
+
     public void initialize() {
+        if (!activeFXML.equals("MainPage.fxml")) {
+            return; // Eğer MainPage.fxml dışında bir sayfa yükleniyorsa, kitap yükleme ve UI güncellemesini atla
+        }
+
         Task<Void> loadTask = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                loadBooksFromJson(); // Kitapları yükleyen metod
+                loadBooksFromJson(); // Kitapları JSON'dan yükleyen metod
                 return null;
             }
 
@@ -349,7 +374,7 @@ public class MainController {
             BookInformation selectedBook = tableView.getItems().get(selectedIndex);
             String jsonFileName = selectedBook.getTitle() + ".json";
             String jsonFilePath = FinalPath + File.separator + jsonFileName;
-            String imageFilePath = "src/main/resources/Library Storage/images/" + selectedBook.getTitle().replace(" ", "_") + ".png"; // Resim dosyası yolu
+            String imageFilePath = FinalPath + "images/" + selectedBook.getTitle().replace(" ", "_") + ".png"; // Resim dosyası yolu
 
 
             try {
@@ -373,13 +398,40 @@ public class MainController {
         }
     }
 
+    public static void createLibraryStorageFolder() {
+        // Klasör zaten varsa, bir şey yapmaya gerek yok
+        if (!createdir.exists()) {
+            boolean result = createdir.mkdirs(); // Ebeveyn klasörler dahil gerekli tüm klasörleri oluşturur
+            if (result) {
+                System.out.println("Klasör başarıyla oluşturuldu: " + createdir);
+            } else {
+                System.out.println("Klasör oluşturulamadı.");
+            }
+        } else {
+            System.out.println("Klasör zaten var: " + createdir);
+        }
+        if (!imagesDirectory.exists()) {
+            if (imagesDirectory.mkdirs()) {
+                System.out.println("Images klasörü başarıyla oluşturuldu: " + finalImagesPath);
+            } else {
+                System.out.println("Images klasörü oluşturulamadı.");
+            }
+        }
+    }
+    // Statik blok içinde klasör kontrolü ve oluşturma işlemi
 
 
-    static String resourcesPath = "src/main/resources/"; // Projenin kaynak klasörüne işaret eder
-    static String libraryStorageFolder = "Library Storage/";
-    static String FinalPath = resourcesPath + libraryStorageFolder;
-    static File createdir = new File(FinalPath);
 
+    private  static String resourcesPath = System.getProperty("user.home"); // Projenin kaynak klasörüne işaret eder
+    private  static String libraryStorageFolder = "/Library Storage/";
+    private  static String FinalPath = resourcesPath + libraryStorageFolder;
+    private  static File createdir = new File(FinalPath);
+    private static String imagesFolder = "/images/"; // Images alt klasörüne işaret eder
+    private static String finalImagesPath = FinalPath + imagesFolder; // Tam Images yolu
+    private static File imagesDirectory = new File(finalImagesPath); // Images için File nesnesi
+static {
+    createLibraryStorageFolder();
+}
 
     private void updateJsonFile(List<BookInformation> kitapList) {
         Gson gson = new Gson();

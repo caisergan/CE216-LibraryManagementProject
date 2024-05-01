@@ -4,29 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c09668b8-2f1a-4570-88c6-ab28522e3993" name="Changes" comment="Delete function restored and it works part2">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="c09668b8-2f1a-4570-88c6-ab28522e3993" name="Changes" comment="Main Page images added!!">
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/CE216-LibraryManagementProject.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CE216-LibraryManagementProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CE216-LibraryManagementProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/CE216-LibraryManagementProject-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/CE216-LibraryManagementProject-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ce216librarymanagementproject/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/crypto book.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Crypto_Book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Python_Book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/python book.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Jumping_Kerem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/images/Rangers_Apprentice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/jumping kerem.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Library Storage/rangers apprentice.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/ce216librarymanagementproject/MainList.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,12 +69,14 @@
     &quot;assignee&quot;: &quot;hilldandi&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/caisergan/CE216-LibraryManagementProject.git&quot;,
-    &quot;accountId&quot;: &quot;36d84e67-28cf-4ebc-80f6-d308972678bb&quot;
-  }
-}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6c68ff88-5301-4812-8398-b71c831b682e" />
+        <option name="url" value="https://github.com/caisergan/CE216-LibraryManagementProject.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -96,48 +92,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Build CE216-LibraryManagementProject.executor": "Run",
-    "Gradle.CE216-LibraryManagementProject [:HelloApplication.main()].executor": "Run",
-    "Gradle.CE216-LibraryManagementProject [:MainApplication.main()].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/S-Ogulcan/Documents/GitHub/ce216librarymanagementproject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Build CE216-LibraryManagementProject.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CE216-LibraryManagementProject [:HelloApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CE216-LibraryManagementProject [:MainApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/EGE/Downloads/CE216-LibraryManagementProject/CE216-LibraryManagementProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\resources\Design Images" />
-      <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\resources\Library Storage\Design Images" />
       <recent name="C:\Users\EGE\IdeaProjects\CE216-LibraryManagementProject\src\main\resources\Library Storage" />
       <recent name="C:\Users\EGE\IdeaProjects\CE216-LibraryManagementProject\src\main\resources\com\example\ce216librarymanagementproject" />
       <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\resources\com\example\ce216librarymanagementproject" />
+      <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\java\com\example\ce216librarymanagementproject" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mrker\CE216-LibraryManagementProject\src\main\resources" />
       <recent name="C:\Users\ezgie\OneDrive\Documents\GitHub\CE216-LibraryManagementProject\src\main\resources\com\example\ce216librarymanagementproject" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.ce216librarymanagementproject.MainApplication" />
       <module name="CE216-LibraryManagementProject.main" />
       <extension name="coverage">
@@ -167,6 +163,9 @@
       <workItem from="1711733761294" duration="8665000" />
       <workItem from="1712777314263" duration="5589000" />
       <workItem from="1712833139602" duration="4677000" />
+      <workItem from="1714069267966" duration="32000" />
+      <workItem from="1714494512361" duration="6946000" />
+      <workItem from="1714556070443" duration="6061000" />
     </task>
     <task id="LOCAL-00001" summary="first prototype of fillBook()">
       <created>1711054097995</created>
@@ -203,17 +202,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first prototype of fillBook()" />
