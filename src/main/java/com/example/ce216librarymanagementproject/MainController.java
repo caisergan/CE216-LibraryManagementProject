@@ -3,6 +3,7 @@ package com.example.ce216librarymanagementproject;
 //In this class we will define all of our methods.
 import com.google.gson.Gson;
 
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -501,6 +502,35 @@ static {
     }
 
     @FXML
+    public void ExportBook(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Book");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JSON Files", "*.json")
+        );
+        File selectedFile = fileChooser.showSaveDialog(new Stage());
+
+        if (selectedFile != null) {
+            BookInformation selectedBook = tableView.getSelectionModel().getSelectedItem();
+
+            if (selectedBook != null) {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String json = gson.toJson(selectedBook);
+                try (FileWriter writer = new FileWriter(selectedFile)) {
+                    writer.write(json);
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("No book selected");
+                alert.setContentText("Please select a book to export.");
+                alert.showAndWait();
+            }
+        }
+    }
+
+
+    @FXML
     public void FillTableView(){
         List<BookInformation> kitapList = new ArrayList<>();
         Path path = Paths.get(FinalPath);
@@ -597,6 +627,8 @@ static {
 
     @FXML
     private Button addbuttonMain;
+    @FXML
+    private Button exportid;
 
 
     //FXML FIELD ID WILL BE BELLOW

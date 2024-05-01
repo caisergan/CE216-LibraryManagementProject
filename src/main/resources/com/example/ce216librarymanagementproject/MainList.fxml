@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
         <HBox>
@@ -33,6 +32,7 @@
                         <Insets left="10.0" top="30.0" />
                     </HBox.margin>
                 </Button>
+            <Button fx:id="exportid" mnemonicParsing="false" onAction="#ExportBook" text="Export" />
                 <TextField fx:id="searchBox" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets left="15.0" right="15.0" top="30.0" />
