@@ -71,10 +71,10 @@ public class MainController {
         activeFXML = "AddBook.fxml";
         root = FXMLLoader.load(getClass().getResource("AddBook.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Add Book Page");
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
@@ -84,41 +84,17 @@ public class MainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
-    public void switchToMain(ActionEvent event) throws IOException {
-
-        root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    public void switchToTableView(ActionEvent event) throws IOException { //use in add button
-        activeFXML = "MainList.fxml";
-        root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
     public void switchToMainPage(ActionEvent event) throws IOException {//swith main page
         activeFXML = "MainPage.fxml";
         root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Library Management");
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-
     }
-
-
-
 
     public void CreateNewBook()throws IOException {
 
@@ -590,7 +566,7 @@ static {
             FillTableView();
             return;
         }
-        String[] tagArray = tags.toLowerCase().split(",");
+        String[] tagArray = tags.split(",");
         for (BookInformation book : tableView.getItems()) {
             for (String tag : tagArray) {
                 if (book.getTags().contains(tag.trim())) {
@@ -606,9 +582,7 @@ static {
     @FXML
     public void addButton(ActionEvent event) throws IOException {
         CreateNewBook();
-        switchToTableView(event);
-
-
+        switchToListBookScene(event);
     }
 
     @FXML
