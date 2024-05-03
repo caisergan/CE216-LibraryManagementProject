@@ -1,56 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
+      <HBox prefHeight="28.0" prefWidth="951.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                      <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#switchToMainPage" text="Back">
+                          <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                          </HBox.margin>
+                      </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" translateX="100.0">
+               <children>
+                  <Button fx:id="helpMainList" alignment="CENTER" mnemonicParsing="false" text="Help" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
         <HBox>
             <children>
                 <Button mnemonicParsing="false" onAction="#FillTableView" prefHeight="25.0" prefWidth="100.0" text="Update">
                     <HBox.margin>
-                        <Insets left="10.0" top="30.0" />
+                        <Insets left="10.0" top="20.0" />
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#switchToAddBookScene" prefHeight="25.0" prefWidth="60.0" text="Add">
                     <HBox.margin>
-                        <Insets left="10.0" top="30.0" />
+                        <Insets left="10.0" top="20.0" />
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#editFile" prefHeight="25.0" prefWidth="60.0" text="Edit">
                     <HBox.margin>
-                        <Insets left="10.0" top="30.0" />
+                        <Insets left="10.0" top="20.0" />
                     </HBox.margin>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#handleDeleteAction" prefHeight="25.0" prefWidth="60.0" text="Delete">
                     <HBox.margin>
-                        <Insets left="10.0" top="30.0" />
+                        <Insets left="10.0" top="20.0" />
                     </HBox.margin>
                 </Button>
             <Button fx:id="exportid" mnemonicParsing="false" onAction="#ExportBook" text="Export">
                <HBox.margin>
-                  <Insets left="10.0" top="30.0" />
+                  <Insets left="10.0" top="20.0" />
                </HBox.margin></Button>
-                <TextField fx:id="searchBox" HBox.hgrow="ALWAYS">
+            <Button fx:id="importbutton" mnemonicParsing="false" onAction="#ImportBook" text="Import">
+               <HBox.margin>
+                  <Insets left="10.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+                <TextField fx:id="searchBox" prefHeight="25.0" prefWidth="242.0" HBox.hgrow="ALWAYS">
                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" top="30.0" />
+                        <Insets left="15.0" right="15.0" top="20.0" />
                     </HBox.margin>
                 </TextField>
-                <Button mnemonicParsing="false" onAction="#FilterByTags" prefHeight="25.0" prefWidth="80.0" text="Search">
+                <Button mnemonicParsing="false" onAction="#SearchAll" prefHeight="25.0" prefWidth="80.0" text="Search All">
                     <HBox.margin>
-                        <Insets top="30.0" />
+                        <Insets right="10.0" top="20.0" />
                     </HBox.margin>
                 </Button>
-                <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#switchToMainPage" text="Back">
-                    <HBox.margin>
-                        <Insets left="10.0" right="10.0" top="30.0" />
-                    </HBox.margin>
-                </Button>
+            <Button mnemonicParsing="false" onAction="#FilterByTags" text="Filter By Tags">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Button>
             </children>
             <VBox.margin>
                 <Insets />

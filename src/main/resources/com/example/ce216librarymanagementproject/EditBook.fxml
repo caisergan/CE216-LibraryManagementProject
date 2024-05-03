@@ -252,11 +252,16 @@
          <children>
             <VBox prefHeight="400.0" prefWidth="250.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="233.0" prefWidth="250.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false">
+                        <Button fx:id="helpEditMenu" mnemonicParsing="false" text="Help" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="345.0" prefWidth="250.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleSelectImage">
                            <graphic>
-                              <ImageView fx:id="bookImageView" accessibleRole="CHECK_BOX" fitHeight="345.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="bookImageView" accessibleRole="CHECK_BOX" fitHeight="235.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                      </children>
@@ -265,7 +270,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="editbutton" mnemonicParsing="false" onAction="#editButton" prefHeight="50.0" prefWidth="100.0" text="EDIT">
+                              <Button fx:id="saveEdit" mnemonicParsing="false" onAction="#saveEdit" prefHeight="50.0" prefWidth="100.0" text="EDIT">
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>

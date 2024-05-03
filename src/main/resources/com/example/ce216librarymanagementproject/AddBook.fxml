@@ -12,11 +12,15 @@
          <children>
             <VBox alignment="CENTER" prefHeight="600.0" prefWidth="250.0">
                <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="helpAddMenu" mnemonicParsing="false" text="Help" />
+                     </children></HBox>
                   <HBox alignment="CENTER" prefHeight="345.0" prefWidth="250.0">
                      <children>
-                        <Button mnemonicParsing="false">
+                        <Button mnemonicParsing="false" onAction="#handleSelectImage">
                            <graphic>
-                              <ImageView fx:id="bookImageView" fitHeight="235.0" fitWidth="198.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="bookImageView" fitHeight="235.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                      </children>
@@ -217,7 +221,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="titleid1" alignment="CENTER" prefHeight="25.0" prefWidth="174.0" promptText="Title">
+                        <TextField fx:id="titleid" alignment="CENTER" prefHeight="25.0" prefWidth="174.0" promptText="Title">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -229,57 +233,57 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="subtitleid1" alignment="CENTER" promptText="Subtitle" />
+                        <TextField fx:id="subtitleid" alignment="CENTER" promptText="Subtitle" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="langid1" alignment="CENTER" promptText="Languages" />
+                        <TextField fx:id="langid" alignment="CENTER" promptText="Languages" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="authorsid1" alignment="CENTER" prefHeight="25.0" prefWidth="163.0" promptText="Authors" />
+                        <TextField fx:id="authorsid" alignment="CENTER" prefHeight="25.0" prefWidth="163.0" promptText="Authors" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="translatorid1" alignment="CENTER" promptText="Translator" />
+                        <TextField fx:id="translatorid" alignment="CENTER" promptText="Translator" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="345.0">
                      <children>
-                        <TextField fx:id="tagsid1" alignment="CENTER" promptText="Tags" />
+                        <TextField fx:id="tagsid" alignment="CENTER" promptText="Tags" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="ratingid1" alignment="CENTER" promptText="Rating" />
+                        <TextField fx:id="ratingid" alignment="CENTER" promptText="Rating" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="editionid1" alignment="CENTER" promptText="Edition" />
+                        <TextField fx:id="editionid" alignment="CENTER" promptText="Edition" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="categoryid1" alignment="CENTER" promptText="Category" />
+                        <TextField fx:id="categoryid" alignment="CENTER" promptText="Category" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="publisherid1" alignment="CENTER" promptText="Publisher" />
+                        <TextField fx:id="publisherid" alignment="CENTER" promptText="Publisher" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="isbnid1" alignment="CENTER" promptText="ISBN" />
+                        <TextField fx:id="isbnid" alignment="CENTER" promptText="ISBN" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="dateid1" alignment="CENTER" promptText="Date" />
+                        <TextField fx:id="dateid" alignment="CENTER" promptText="Date" />
                      </children>
                   </HBox>
                </children>

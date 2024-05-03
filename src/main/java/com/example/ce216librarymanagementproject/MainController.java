@@ -230,7 +230,6 @@ public class MainController {
         CreateNewBook();
     }
 
-
     @FXML
     private void updateListViewFromJson() {
         Gson gson = new Gson();
@@ -557,6 +556,69 @@ static {
         tagsCol.setCellValueFactory(new PropertyValueFactory<>("tags"));
     }
 
+    public void SearchAll(){
+        FillTableView();
+        ObservableList<BookInformation> filteredList = FXCollections.observableArrayList();
+
+        String search = searchBox.getText();
+        if (search == null || search.isEmpty()) {
+            FillTableView();
+            return;
+        }
+
+        for (BookInformation book : tableView.getItems()) {
+            if(book.getTitle().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getSubtitle().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getTranslators().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getAuthors().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getPublisher().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getTags().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getRating().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getEdition().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getCategory().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getLanguage().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getDate().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+            else if(book.getIsbn().toLowerCase().contains(search.toLowerCase())){
+                filteredList.add(book);
+                return;
+            }
+        }
+        tableView.setItems(filteredList);
+    }
+
     public void FilterByTags() {
         FillTableView();
         ObservableList<BookInformation> filteredList = FXCollections.observableArrayList();
@@ -582,6 +644,12 @@ static {
     @FXML
     public void addButton(ActionEvent event) throws IOException {
         CreateNewBook();
+        switchToListBookScene(event);
+    }
+
+    @FXML
+    public void saveEdit(ActionEvent event) throws IOException{
+        editButton(event);
         switchToListBookScene(event);
     }
 
@@ -631,6 +699,14 @@ static {
     @FXML
     private Button exportid;
 
+    @FXML
+    private Button helpAddMenu;
+    @FXML
+    private Button helpMainPage;
+    @FXML
+    private Button helpEditMenu;
+    @FXML
+    private Button helpMainList;
 
     //FXML FIELD ID WILL BE BELLOW
     @FXML
