@@ -65,7 +65,7 @@
                     <children>
                         <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: rgba(0,0,0,0);" text="Help">
                             <graphic>
-                                <ImageView fx:id="helpMainPage" fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Design Images/question.png" />
                                     </image>
