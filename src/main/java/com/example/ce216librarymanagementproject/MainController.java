@@ -556,7 +556,7 @@ static {
         tagsCol.setCellValueFactory(new PropertyValueFactory<>("tags"));
     }
 
-    public void SearchAll(){
+    public void SearchAll() {
         FillTableView();
         ObservableList<BookInformation> filteredList = FXCollections.observableArrayList();
 
@@ -567,57 +567,25 @@ static {
         }
 
         for (BookInformation book : tableView.getItems()) {
-            if(book.getTitle().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getSubtitle().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getTranslators().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getAuthors().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getPublisher().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getTags().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getRating().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getEdition().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getCategory().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getLanguage().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getDate().toLowerCase().contains(search.toLowerCase())){
-                filteredList.add(book);
-                return;
-            }
-            else if(book.getIsbn().toLowerCase().contains(search.toLowerCase())){
+            if (book.getTitle().toLowerCase().contains(search.toLowerCase())
+                    || book.getSubtitle().toLowerCase().contains(search.toLowerCase())
+                    || book.getTranslators().toLowerCase().contains(search.toLowerCase())
+                    || book.getAuthors().toLowerCase().contains(search.toLowerCase())
+                    || book.getPublisher().toLowerCase().contains(search.toLowerCase())
+                    || book.getTags().toLowerCase().contains(search.toLowerCase())
+                    || book.getRating().toLowerCase().contains(search.toLowerCase())
+                    || book.getEdition().toLowerCase().contains(search.toLowerCase())
+                    || book.getCategory().toLowerCase().contains(search.toLowerCase())
+                    || book.getLanguage().toLowerCase().contains(search.toLowerCase())
+                    || book.getDate().toLowerCase().contains(search.toLowerCase())
+                    || (book.getIsbn().toLowerCase().contains(search.toLowerCase()))) {
                 filteredList.add(book);
                 return;
             }
         }
         tableView.setItems(filteredList);
     }
+
 
     public void FilterByTags() {
         FillTableView();

@@ -60,7 +60,7 @@
                         <Insets left="15.0" right="15.0" top="20.0" />
                     </HBox.margin>
                 </TextField>
-                <Button mnemonicParsing="false" onAction="#SearchAll" prefHeight="25.0" prefWidth="80.0" text="Search All">
+                <Button fx:id="searchbutton" mnemonicParsing="false" onAction="#SearchAll" prefHeight="25.0" prefWidth="80.0" text="Search All">
                     <HBox.margin>
                         <Insets right="10.0" top="20.0" />
                     </HBox.margin>

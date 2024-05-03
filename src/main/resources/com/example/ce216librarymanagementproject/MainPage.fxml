@@ -63,9 +63,9 @@
                 </HBox>
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
-                        <Button fx:id="helpMainPage" mnemonicParsing="false" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: rgba(0,0,0,0);" text="Help">
+                        <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: rgba(0,0,0,0);" text="Help">
                             <graphic>
-                                <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fx:id="helpMainPage" fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@/Design Images/question.png" />
                                     </image>
