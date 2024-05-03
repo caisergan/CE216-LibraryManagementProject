@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<VBox alignment="CENTER" prefHeight="879.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
-        <HBox alignment="TOP_CENTER">
+        <HBox alignment="TOP_CENTER" prefHeight="122.0" prefWidth="1192.0">
             <children>
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
@@ -82,40 +81,35 @@
                     </children>
                 </HBox>
             </children>
-            <padding>
+            <VBox.margin>
                 <Insets top="50.0" />
+            </VBox.margin>
+            <padding>
+                <Insets top="30.0" />
             </padding>
         </HBox>
-        <VBox spacing="10.0">
+        <VBox prefHeight="686.0" prefWidth="1142.0" spacing="10.0">
             <children>
-                <HBox alignment="CENTER" style="-fx-background-color: #fff; -fx-background-radius: 10;">
+                <HBox alignment="CENTER" prefHeight="173.0" prefWidth="1082.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
                     <children>
-                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" prefHeight="150.0" prefWidth="772.0" HBox.hgrow="ALWAYS">
                             <children>
-                                <Label alignment="CENTER" maxWidth="400.0" minWidth="400.0" prefHeight="125.0" prefWidth="400.0" text="Welcome to the&#10;Library Of Heaven" textAlignment="CENTER" textFill="#5a5a5a">
+                                <Label prefHeight="110.0" prefWidth="362.0" text="All Books are Originally &#10;Stolen from Heaven" textFill="#5a5a5a">
                                     <font>
                                         <Font name="Forte" size="31.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets right="80.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Label prefHeight="125.0" prefWidth="363.0" text="All Books are Originally &#10;Stolen from Heaven" textFill="#5a5a5a">
-                                    <font>
-                                        <Font name="Forte" size="31.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets />
+                                        <Insets left="150.0" top="30.0" />
                                     </VBox.margin>
                                 </Label>
                             </children>
                             <HBox.margin>
-                                <Insets />
+                                <Insets bottom="50.0" />
                             </HBox.margin>
                         </VBox>
-                        <ImageView fitHeight="257.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="172.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>
-                                <Insets right="10.0" />
+                                <Insets right="170.0" />
                             </HBox.margin>
                             <image>
                                 <Image url="@/Design Images/rakun.png" />
@@ -123,15 +117,21 @@
                         </ImageView>
                     </children>
                     <HBox.margin>
-                        <Insets />
+                        <Insets right="170.0" />
                     </HBox.margin>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
                 </HBox>
-                <VBox alignment="CENTER" spacing="10.0">
+                <VBox alignment="CENTER" prefWidth="1082.0" spacing="10.0">
                     <children>
-                        <Label alignment="CENTER" prefHeight="43.0" prefWidth="248.0" text="Popular Books" textAlignment="CENTER" textFill="#5a5a5a">
+                        <Label alignment="CENTER"  prefHeight="43.0" prefWidth="248.0" text="Popular Books" textAlignment="CENTER" textFill="#5a5a5a">
                             <font>
                                 <Font name="Forte" size="31.0" />
                             </font>
+                            <HBox.margin>
+                                <Insets right="170.0" top="50.0" />
+                            </HBox.margin>
                         </Label>
                         <HBox alignment="CENTER" spacing="10.0">
                             <children>
@@ -224,14 +224,111 @@
                                 <Insets left="10.0" />
                             </padding>
                         </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="63.0" spacing="10.0">
+                            <children>
+                                <VBox alignment="CENTER" prefHeight="226.0" prefWidth="229.0">
+                                    <children>
+                                        <ImageView fx:id="bookImage5" fitHeight="142.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                        <Label fx:id="bookTitle5" prefHeight="43.0" prefWidth="216.0" text="bookName:">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label fx:id="bookAuthor5" layoutX="17.0" layoutY="122.0" prefHeight="3.0" prefWidth="216.0" text="Author">
+                                            <font>
+                                                <Font name="Berlin Sans FB" size="15.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets top="20.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="226.0" prefWidth="229.0">
+                                    <children>
+                                        <ImageView fx:id="bookImage6" fitHeight="142.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                        <Label fx:id="bookTitle6" prefHeight="43.0" prefWidth="216.0" text="bookName:">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label fx:id="bookAuthor6" layoutX="17.0" layoutY="122.0" prefHeight="3.0" prefWidth="216.0" text="Author">
+                                            <font>
+                                                <Font name="Berlin Sans FB" size="15.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets top="20.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="226.0" prefWidth="229.0">
+                                    <children>
+                                        <ImageView fx:id="bookImage7" fitHeight="142.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                        <Label fx:id="bookTitle7" prefHeight="43.0" prefWidth="216.0" text="bookName:">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label fx:id="bookAuthor7" layoutX="17.0" layoutY="122.0" prefHeight="3.0" prefWidth="216.0" text="Author">
+                                            <font>
+                                                <Font name="Berlin Sans FB" size="15.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets top="20.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="226.0" prefWidth="229.0">
+                                    <children>
+                                        <ImageView fx:id="bookImage8" fitHeight="142.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                        <Label fx:id="bookTitle8" prefHeight="43.0" prefWidth="216.0" text="bookName:">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </Label>
+                                        <Label fx:id="bookAuthor8" layoutX="17.0" layoutY="122.0" prefHeight="3.0" prefWidth="216.0" text="Author">
+                                            <font>
+                                                <Font name="Berlin Sans FB" size="15.0" />
+                                            </font>
+                                            <VBox.margin>
+                                                <Insets top="20.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets left="10.0" />
+                            </padding>
+                        </HBox>
                     </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <HBox.margin>
+                        <Insets right="170.0" />
+                    </HBox.margin>
                 </VBox>
             </children>
             <padding>
                 <Insets left="30.0" right="30.0" />
             </padding>
             <VBox.margin>
-                <Insets right="50.0" />
+                <Insets bottom="100.0" right="50.0" />
             </VBox.margin>
         </VBox>
     </children>

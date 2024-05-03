@@ -175,13 +175,22 @@ public class MainController {
         book.setAuthors(authorsid.getText());
         book.setPublisher(publisherid.getText());
         book.setTags(tagsid.getText());
-        book.setRating(ratingid.getText());
+        if (ratingid.getText() == ""){
+            book.setRating("0");
+        }
+        else book.setRating(ratingid.getText());
+        try{
+            Double.parseDouble(ratingid.getText());
+            book.setRating(ratingid.getText());
+
+        }catch (Exception e){
+            book.setRating("0");
+        }
         book.setEdition(editionid.getText());
         book.setCategory(categoryid.getText());
         book.setLanguage(langid.getText());
         book.setDate(dateid.getText());
         book.setIsbn(isbnid.getText());
-
 
         //book.setPictures();
 
@@ -311,13 +320,14 @@ public class MainController {
 
         // Tüm kitapları kendi ratinglerine göre sırala (yüksekten düşüğe)
         Collections.sort(bookList, (book1, book2) -> {
-            int rating1 = Integer.parseInt(book1.getRating());
-            int rating2 = Integer.parseInt(book2.getRating());
-            return Integer.compare(rating2, rating1); // Ters sıralama için rating2, rating1
+            double rating1 = Double.parseDouble(book1.getRating());
+            double rating2 = Double.parseDouble(book2.getRating());
+
+            return Double.compare(rating2, rating1); // Ters sıralama için rating2, rating1
         });
 
         // En yüksek dereceli 4 veya daha az kitabı topBooks listesine ekle
-        int count = Math.min(4, bookList.size());
+        int count = Math.min(8, bookList.size());
         for (int i = 0; i < count; i++) {
             topBooks.add(bookList.get(i));
         }
@@ -335,6 +345,18 @@ public class MainController {
         }
         if (topBooks.size() > 3) {
             updateBookUI(topBooks.get(3), bookImage4, bookTitle4, bookAuthor4);
+        }
+        if (topBooks.size() > 4) {
+            updateBookUI(topBooks.get(4), bookImage5, bookTitle5, bookAuthor5);
+        }
+        if (topBooks.size() > 5) {
+            updateBookUI(topBooks.get(5), bookImage6, bookTitle6, bookAuthor6);
+        }
+        if (topBooks.size() > 6) {
+            updateBookUI(topBooks.get(6), bookImage7, bookTitle7, bookAuthor7);
+        }
+        if (topBooks.size() > 7) {
+            updateBookUI(topBooks.get(7), bookImage8, bookTitle8, bookAuthor8);
         }
         topBooks.clear();
         bookList.clear();
@@ -361,7 +383,7 @@ public class MainController {
 
 
 
-    private static String activeFXML = "";
+    private static String activeFXML = "MainPage.fxml";
 
 
     public void initialize() {
@@ -375,10 +397,10 @@ public class MainController {
                 loadBooksFromJson(); // Kitapları JSON'dan yükleyen metod
                 return null;
             }
-
             @Override
             protected void succeeded() {
                 updateUI(); // UI güncelleme
+                FillTableView();
             }
 
             @Override
@@ -527,6 +549,8 @@ static {
 
     @FXML
     public void FillTableView(){
+        if (tableView == null)return;
+
         List<BookInformation> kitapList = new ArrayList<>();
         Path path = Paths.get(FinalPath);
 
@@ -541,7 +565,6 @@ static {
             System.err.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
             return;
         }
-
         ObservableList<BookInformation> items = FXCollections.observableArrayList(kitapList);
         tableView.setItems(items);
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -697,4 +720,29 @@ static {
     private Label bookTitle4;
     @FXML
     private Label bookAuthor4;
+    @FXML
+    private ImageView bookImage5;
+    @FXML
+    private Label bookTitle5;
+    @FXML
+    private Label bookAuthor5;
+    @FXML
+    private ImageView bookImage6;
+    @FXML
+    private Label bookTitle6;
+    @FXML
+    private Label bookAuthor6;
+    @FXML
+    private ImageView bookImage7;
+    @FXML
+    private Label bookTitle7;
+    @FXML
+    private Label bookAuthor7;
+    @FXML
+    private ImageView bookImage8;
+    @FXML
+    private Label bookTitle8;
+    @FXML
+    private Label bookAuthor8;
+
 }
