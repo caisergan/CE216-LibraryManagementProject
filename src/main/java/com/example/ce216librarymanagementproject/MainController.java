@@ -34,6 +34,7 @@ import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static javafx.application.Application.launch;
 
@@ -619,8 +620,26 @@ static {
     //FXML BUTTON FUNCTIONS WILL BE BELLOW
     @FXML
     public void addButton(ActionEvent event) throws IOException {
-        CreateNewBook();
-        switchToListBookScene(event);
+        if(titleid.getText().isEmpty() || subtitleid.getText().isEmpty() || translatorid.getText().isEmpty() || authorsid.getText().isEmpty() || publisherid.getText().isEmpty() || dateid.getText().isEmpty() ||
+                isbnid.getText().isEmpty() || langid.getText().isEmpty() || categoryid.getText().isEmpty() || editionid.getText().isEmpty() || tagsid.getText().isEmpty() || ratingid.getText().isEmpty()){
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Error");
+            alert.setContentText("Fill All The Blanks");
+            alert.show();
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK){
+                CreateNewBook();
+                switchToListBookScene(event);
+            }
+            else if(result.get() == ButtonType.CANCEL){
+                alert.close();
+            }
+        }
+        else{
+            CreateNewBook();
+            switchToListBookScene(event);
+        }
     }
 
     @FXML
