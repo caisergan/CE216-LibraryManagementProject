@@ -4,9 +4,7 @@ package com.example.ce216librarymanagementproject;
 import com.google.gson.Gson;
 
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -29,14 +27,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.*;
 
-import java.lang.reflect.Type;
-import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
-import static javafx.application.Application.launch;
+import java.nio.file.*;
+import java.util.*;
+
+
 
 
 public class MainController {
@@ -79,16 +74,21 @@ public class MainController {
         stage.centerOnScreen();
     }
 
-    public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
+   public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
 
         activeFXML = "MainList.fxml";
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+       stage.setTitle("List Book Page");
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         stage.centerOnScreen();
     }
+
+
+
+
 
     public void switchToMainPage(ActionEvent event) throws IOException {//swith main page
         activeFXML = "MainPage.fxml";
@@ -408,27 +408,35 @@ public class MainController {
             String jsonFilePath = FinalPath + File.separator + jsonFileName;
             String imageFilePath = FinalPath + "images/" + selectedBook.getTitle().replace(" ", "_") + ".png"; // Resim dosyası yolu
 
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("Delete Book");
+            alert.setContentText("Are you sure you want to delete the book '" + selectedBook.getTitle() + "'?");
 
-            try {
-                // Delete the JSON file
-                Files.deleteIfExists(Paths.get(jsonFilePath));
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                try {
+                    // Delete the JSON file
+                    Files.deleteIfExists(Paths.get(jsonFilePath));
 
-                // Delete the image file
-                Files.deleteIfExists(Paths.get(imageFilePath));
-            } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Failed to delete file");
-                alert.setContentText("An error occurred while deleting the file: " + e.getMessage());
-                alert.showAndWait();
-                return;
+                    // Delete the image file
+                    Files.deleteIfExists(Paths.get(imageFilePath));
+                } catch (IOException e) {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    errorAlert.setTitle("Error");
+                    errorAlert.setHeaderText("Failed to delete file");
+                    errorAlert.setContentText("An error occurred while deleting the file: " + e.getMessage());
+                    errorAlert.showAndWait();
+                    return;
+                }
+
+                // Remove the book from the list and update the JSON file
+                tableView.getItems().remove(selectedIndex);
+                updateJsonFile(new ArrayList<>(tableView.getItems()));
             }
-
-            // Remove the book from the list and update the JSON file
-            tableView.getItems().remove(selectedIndex);
-            updateJsonFile(new ArrayList<>(tableView.getItems()));
         }
     }
+
 
     public static void createLibraryStorageFolder() {
         // Klasör zaten varsa, bir şey yapmaya gerek yok
@@ -625,22 +633,24 @@ static {
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Error");
-            alert.setContentText("Fill All The Blanks");
-            alert.show();
+            alert.setContentText("You are not fill all the blanks.\nAre you sure for exit?");
+
             Optional<ButtonType> result = alert.showAndWait();
-            if(result.get() == ButtonType.OK){
-                CreateNewBook();
-                switchToListBookScene(event);
+
+            if (result.isPresent()) {
+                if (result.get() == ButtonType.OK) {
+                    CreateNewBook();
+                    switchToListBookScene(event);
+                } else if (result.get() == ButtonType.CANCEL) {
+                    alert.close();
+                }
             }
-            else if(result.get() == ButtonType.CANCEL){
-                alert.close();
-            }
-        }
-        else{
+        } else {
             CreateNewBook();
             switchToListBookScene(event);
         }
     }
+
 
     @FXML
     public void saveEdit(ActionEvent event) throws IOException{
