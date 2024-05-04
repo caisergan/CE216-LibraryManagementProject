@@ -15,6 +15,7 @@ public class MainApplication extends Application {
         stage.setTitle("Library Management");
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
 

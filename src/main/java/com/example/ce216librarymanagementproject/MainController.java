@@ -75,15 +75,18 @@ public class MainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
     public void switchToListBookScene(ActionEvent event) throws IOException {//switch ege's list book scene
+
         activeFXML = "MainList.fxml";
         root = FXMLLoader.load(getClass().getResource("MainList.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
     public void switchToMainPage(ActionEvent event) throws IOException {//swith main page
@@ -94,6 +97,7 @@ public class MainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
     public void CreateNewBook()throws IOException {
@@ -138,6 +142,7 @@ public class MainController {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedImage = fileChooser.showOpenDialog(stage);
+        stage.centerOnScreen();
         if (selectedImage != null) {
             bookImageView.setImage(new Image(selectedImage.toURI().toString()));
         }
@@ -362,6 +367,10 @@ public class MainController {
 
 
     public void initialize() {
+        if(activeFXML.equals("MainList.fxml")){
+            FillTableView();
+        }
+
         if (!activeFXML.equals("MainPage.fxml")) {
             return; // Eğer MainPage.fxml dışında bir sayfa yükleniyorsa, kitap yükleme ve UI güncellemesini atla
         }
@@ -580,7 +589,6 @@ static {
                     || book.getDate().toLowerCase().contains(search.toLowerCase())
                     || (book.getIsbn().toLowerCase().contains(search.toLowerCase()))) {
                 filteredList.add(book);
-                return;
             }
         }
         tableView.setItems(filteredList);
