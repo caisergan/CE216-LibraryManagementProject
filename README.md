@@ -23,7 +23,11 @@ This application designed with Java, JavaFX
 
 Screen Shots of the Application:
 
+![MainPage](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/53bbae41-2424-437a-b6dc-b6177882397b)
+![MainList](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/4d59f534-f278-474e-9035-eb10edb95fbd)
+![AfterAddedBook](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/a0c06f80-5a5b-472f-a4bc-ef327ec8de98)
+![AddBook](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/3853b850-c72c-482a-928b-b2e74afea33e)
+![Edit](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/60e3fccd-c4bf-4758-a62a-98dd423af08d)
 
-![MainPage](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/ae5225e0-19d2-407e-b338-4d8cabe6a28a)
-![MainList](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/7b59001e-2a89-4aa2-9aa4-93f7001fc837)
-![Add_editPage](https://github.com/caisergan/CE216-LibraryManagementProject/assets/104510078/83578dac-0bae-4145-a1b1-1f5fd1dd483b)
+
+
