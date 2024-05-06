@@ -517,7 +517,7 @@ static {
         File selectedfile = fileChooser.showOpenDialog(null);
         String FilePath = selectedfile.getAbsolutePath();
         String FileName = selectedfile.getName();
-        String regexPattern = "[_.\\/,;|]";
+        String regexPattern = "[_\\/,;|]";
         String formattedFileName = FileName.replaceAll(regexPattern, " ");
 
         Path in= Paths.get(FilePath);
