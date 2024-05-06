@@ -665,6 +665,7 @@ static {
 
     @FXML
     private void helpMenu() throws IOException {
+        activeFXML = "HelpOne.fxml";
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HelpOne.fxml"));
         Parent root = fxmlLoader.load();
@@ -676,7 +677,7 @@ static {
     }
     public void switchToHelp2(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpOne.fxml";
+        activeFXML = "HelpOne.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpTwo.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
@@ -687,7 +688,7 @@ static {
     }
     public void switchToHelp1(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpTwo.fxml";
+        activeFXML = "HelpTwo.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpOne.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
@@ -698,7 +699,7 @@ static {
     }
     public void switchToHelp3(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpTwo.fxml";
+        activeFXML = "HelpTwo.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpThree.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
@@ -709,7 +710,7 @@ static {
     }
     public void switchToHelp4(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpThree.fxml";
+        activeFXML = "HelpThree.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpFour.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
@@ -720,7 +721,7 @@ static {
     }
     public void switchToHelp5(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpFour.fxml";
+        activeFXML = "HelpFour.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpFifth.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
@@ -731,7 +732,7 @@ static {
     }
     public void switchToHelp6(ActionEvent event) throws IOException {//switch ege's list book scene
 
-        //activeFXML = "HelpFifth.fxml";
+        activeFXML = "HelpFifth.fxml";
         root = FXMLLoader.load(getClass().getResource("HelpSix.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Help");
