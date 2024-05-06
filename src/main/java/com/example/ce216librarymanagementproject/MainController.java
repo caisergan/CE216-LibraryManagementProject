@@ -501,9 +501,11 @@ static {
         File selectedfile = fileChooser.showOpenDialog(null);
         String FilePath = selectedfile.getAbsolutePath();
         String FileName = selectedfile.getName();
+        String regexPattern = "[_.\\/,;|]";
+        String formattedFileName = FileName.replaceAll(regexPattern, " ");
 
         Path in= Paths.get(FilePath);
-        Path out = Paths.get(FinalPath+"\\"+FileName);
+        Path out = Paths.get(FinalPath+"\\"+formattedFileName);
         Files.copy(in,out);
     }
 
@@ -616,7 +618,7 @@ static {
         String[] tagArray = tags.split(",");
         for (BookInformation book : tableView.getItems()) {
             for (String tag : tagArray) {
-                if (book.getTags().contains(tag.trim())) {
+                if (book.getTags().toLowerCase().contains(tag.trim().toLowerCase())) {
                     filteredList.add(book);
                     break;
                 }
