@@ -711,7 +711,7 @@ static {
         Scene scene = new Scene(root, 900, 700);
         stage.setTitle("Help");
         stage.setScene(scene);
-        //stage.setResizable(false);
+        stage.setResizable(false);
         stage.showAndWait();
     }
     public void switchToHelp2(ActionEvent event) throws IOException {//switch ege's list book scene
