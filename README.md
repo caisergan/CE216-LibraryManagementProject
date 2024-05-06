@@ -13,13 +13,13 @@ Features
 
 -Delete book
 
--Search book
+-Searching book features and Tags of the books
 
 -Import and export book
 
 Development
 
-This application designed with Java, JavaFX
+This application designed with Java, JavaFX with gradle
 
 Screen Shots of the Application:
 
