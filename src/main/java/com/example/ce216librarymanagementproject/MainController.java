@@ -658,11 +658,77 @@ static {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HelpOne.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 900, 700);
         stage.setTitle("Help");
         stage.setScene(scene);
-        stage.setResizable(false);
+        //stage.setResizable(false);
         stage.showAndWait();
+    }
+    public void switchToHelp2(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpOne.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpTwo.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+    public void switchToHelp1(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpTwo.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpOne.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+    public void switchToHelp3(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpTwo.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpThree.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+    public void switchToHelp4(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpThree.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpFour.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+    public void switchToHelp5(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpFour.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpFifth.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
+    }
+    public void switchToHelp6(ActionEvent event) throws IOException {//switch ege's list book scene
+
+        //activeFXML = "HelpFifth.fxml";
+        root = FXMLLoader.load(getClass().getResource("HelpSix.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Help");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.centerOnScreen();
     }
 
 
