@@ -121,12 +121,23 @@ public class MainController {
         // RESİM EKLEME VE KAYDETME
         String bookTitle = titleid.getText();
         String imagePath = FinalPath+"images/" + bookTitle.replace(" ", "_") + ".png";
-
+        File outputFile = new File(imagePath);
         if (bookImageView.getImage() != null) {
-            File outputFile = new File(imagePath);
+
             try {
                 ImageIO.write(SwingFXUtils.fromFXImage(bookImageView.getImage(), null), "png", outputFile);
             } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            try {
+                String defaultImagePath = "src/main/resources/Design Images/cover.png";
+
+                // Resmi dosyadan yükle
+                Image defaultImage = new Image(new File(defaultImagePath).toURI().toString());
+
+                // Default resmi dosyaya kaydet
+                ImageIO.write(SwingFXUtils.fromFXImage(defaultImage, null), "png", outputFile);            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -143,7 +154,6 @@ public class MainController {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
         File selectedImage = fileChooser.showOpenDialog(stage);
-        stage.centerOnScreen();
         if (selectedImage != null) {
             bookImageView.setImage(new Image(selectedImage.toURI().toString()));
         }
