@@ -172,8 +172,14 @@ public class MainController {
         }
         else book.setRating(ratingid.getText());
         try{
-            Double.parseDouble(ratingid.getText());
-            book.setRating(ratingid.getText());
+            Double rating = Double.parseDouble(ratingid.getText());
+            if (rating <= 0){
+                book.setRating("0");
+            }
+            else if (rating >= 5){
+                book.setRating("5");
+            }
+            else book.setRating(ratingid.getText());
 
         }catch (Exception e){
             book.setRating("0");
