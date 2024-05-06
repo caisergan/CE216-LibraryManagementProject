@@ -653,6 +653,18 @@ static {
         }
     }
 
+    @FXML
+    private void helpMenu() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HelpOne.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 800, 600);
+        stage.setTitle("Help");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.showAndWait();
+    }
+
 
     @FXML
     public void saveEdit(ActionEvent event) throws IOException{

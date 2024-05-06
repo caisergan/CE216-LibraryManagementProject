@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="879.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<VBox alignment="CENTER" prefHeight="879.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
     <children>
         <HBox alignment="TOP_CENTER" prefHeight="122.0" prefWidth="1192.0">
             <children>
@@ -63,7 +66,7 @@
                 </HBox>
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
-                        <Button fx:id="helpMainPage" mnemonicParsing="false" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: rgba(0,0,0,0);" text="Help">
+                        <Button fx:id="helpMainPage" mnemonicParsing="false" onAction="#helpMenu" prefHeight="87.0" prefWidth="162.0" style="-fx-background-color: rgba(0,0,0,0);" text="Help">
                             <graphic>
                                 <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216librarymanagementproject.MainController">
    <right>
       <VBox prefHeight="600.0" prefWidth="280.0" BorderPane.alignment="CENTER">
          <children>
@@ -14,7 +14,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="helpAddMenu" mnemonicParsing="false" text="Help" />
+                        <Button fx:id="helpAddMenu" mnemonicParsing="false" onAction="#helpMenu" text="Help" />
                      </children></HBox>
                   <HBox alignment="CENTER" prefHeight="345.0" prefWidth="250.0">
                      <children>
