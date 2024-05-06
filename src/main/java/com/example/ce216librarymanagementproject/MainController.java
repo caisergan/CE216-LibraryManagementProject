@@ -638,68 +638,74 @@ static {
     }
 
     //FXML BUTTON FUNCTIONS WILL BE BELLOW
+    private boolean isAnyFieldEmpty() {
+        return titleid.getText().isEmpty() || subtitleid.getText().isEmpty() ||
+                translatorid.getText().isEmpty() || authorsid.getText().isEmpty() ||
+                publisherid.getText().isEmpty() || dateid.getText().isEmpty() ||
+                isbnid.getText().isEmpty() || langid.getText().isEmpty() ||
+                categoryid.getText().isEmpty() || editionid.getText().isEmpty() ||
+                tagsid.getText().isEmpty();
+    }
+
     @FXML
     public void addButton(ActionEvent event) throws IOException {
+        String ratingText = ratingid.getText();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
 
-        if (!ratingid.getText().isEmpty()){
-            try{
-                double rating = Double.parseDouble(ratingid.getText());
-                if (rating > 5 || rating < 0){
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error");
-                    alert.setContentText("HEY LANET OLASI 0 ile 5 aralığında rating vermen gerekiyor!!");
+        // Rating alanı boş değilse devam et
+        if (!ratingText.isEmpty()) {
+            try {
+                double rating = Double.parseDouble(ratingText);
 
-                    Optional<ButtonType> result = alert.showAndWait();
+                // Rating değeri 0 ile 5 arasında olmalı
+                if (rating < 0 || rating > 5) {
+                    alert.setTitle("Geçersiz Rating");
+                    alert.setContentText("Lütfen 0 ile 5 arasında bir rating değeri girin.");
+                    alert.showAndWait();
+                } else if (isAnyFieldEmpty()) {
+                    Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert2.setTitle("Error");
+                    alert2.setContentText("You did not fill all the blanks.\nAre you sure for exit?");
 
-                }
-                else if(titleid.getText().isEmpty() || subtitleid.getText().isEmpty() || translatorid.getText().isEmpty() || authorsid.getText().isEmpty() || publisherid.getText().isEmpty() || dateid.getText().isEmpty() ||
-                        isbnid.getText().isEmpty() || langid.getText().isEmpty() || categoryid.getText().isEmpty() || editionid.getText().isEmpty() || tagsid.getText().isEmpty() || ratingid.getText().isEmpty()){
-
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Error");
-                    alert.setContentText("You did not fill all the blanks.\nAre you sure for exit?");
-
-                    Optional<ButtonType> result = alert.showAndWait();
+                    Optional<ButtonType> result = alert2.showAndWait();
 
                     if (result.isPresent()) {
                         if (result.get() == ButtonType.OK) {
                             CreateNewBook();
                             switchToListBookScene(event);
                         } else if (result.get() == ButtonType.CANCEL) {
-                            alert.close();
+                            alert2.close();
                         }
                     }
                 } else {
+                    // Tüm alanlar doldurulmuş ve rating değeri geçerli
                     CreateNewBook();
                     switchToListBookScene(event);
                 }
-            }catch (Exception e){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Error");
-                alert.setContentText("You did not fill all the blanks.\nAre you sure for exit?");
 
-                Optional<ButtonType> result = alert.showAndWait();
-
+            } catch (NumberFormatException e) {
+                // Sayısal olmayan bir değer girildiğinde hata mesajı
+                alert.setTitle("Geçersiz Girdi");
+                alert.setContentText("Lütfen sayısal bir rating değeri girin.");
+                alert.showAndWait();
             }
-        }
-        else {
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Error");
-            alert.setContentText("You did not fill all the blanks.\nAre you sure for exit?");
+        } else {
+            Alert alert3 = new Alert(Alert.AlertType.CONFIRMATION);
+            alert3.setTitle("Error");
+            alert3.setContentText("You did not fill all the blanks.\nAre you sure for exit?");
 
-            Optional<ButtonType> result = alert.showAndWait();
+            Optional<ButtonType> result = alert3.showAndWait();
 
             if (result.isPresent()) {
                 if (result.get() == ButtonType.OK) {
                     CreateNewBook();
                     switchToListBookScene(event);
                 } else if (result.get() == ButtonType.CANCEL) {
-                    alert.close();
+                    alert3.close();
                 }
             }
         }
-
     }
 
     @FXML
