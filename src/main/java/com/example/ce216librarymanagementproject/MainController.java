@@ -131,11 +131,9 @@ public class MainController {
             }
         }else {
             try {
-                String defaultImagePath = "src/main/resources/Design Images/cover.png";
 
                 // Resmi dosyadan yükle
-                Image defaultImage = new Image(new File(defaultImagePath).toURI().toString());
-
+                Image defaultImage = new Image(getClass().getResource("Design Images/cover.png").openStream());
                 // Default resmi dosyaya kaydet
                 ImageIO.write(SwingFXUtils.fromFXImage(defaultImage, null), "png", outputFile);            } catch (IOException e) {
                 e.printStackTrace();
@@ -520,6 +518,7 @@ static {
         String regexPattern = "[_\\/,;|]";
         String formattedFileName = FileName.replaceAll(regexPattern, " ");
 
+
         Path in= Paths.get(FilePath);
         Path out = Paths.get(FinalPath+"\\"+formattedFileName);
         Files.copy(in,out);
@@ -665,8 +664,8 @@ static {
 
                 // Rating değeri 0 ile 5 arasında olmalı
                 if (rating < 0 || rating > 5) {
-                    alert.setTitle("Geçersiz Rating");
-                    alert.setContentText("Lütfen 0 ile 5 arasında bir rating değeri girin.");
+                    alert.setTitle("Invalid Rating");
+                    alert.setContentText("Please nter rating value between 0 and 5");
                     alert.showAndWait();
                 } else if (isAnyFieldEmpty()) {
                     Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
@@ -681,6 +680,7 @@ static {
                             switchToListBookScene(event);
                         } else if (result.get() == ButtonType.CANCEL) {
                             alert2.close();
+                            switchToListBookScene(event);
                         }
                     }
                 } else {
@@ -691,8 +691,8 @@ static {
 
             } catch (NumberFormatException e) {
                 // Sayısal olmayan bir değer girildiğinde hata mesajı
-                alert.setTitle("Geçersiz Girdi");
-                alert.setContentText("Lütfen sayısal bir rating değeri girin.");
+                alert.setTitle("Invalid Input");
+                alert.setContentText("Please enter numerical value for rating");
                 alert.showAndWait();
             }
 

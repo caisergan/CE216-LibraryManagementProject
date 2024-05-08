@@ -19,7 +19,7 @@
                             <graphic>
                                 <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/Design Images/plus.png" />
+                                        <Image url="@/com/example/ce216librarymanagementproject/Design Images/plus.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -38,7 +38,7 @@
                             <graphic>
                                 <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/Design Images/import.png" />
+                                        <Image url="@/com/example/ce216librarymanagementproject/Design Images/import.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -54,7 +54,7 @@
                             <graphic>
                                 <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/Design Images/list.png" />
+                                        <Image url="@/com/example/ce216librarymanagementproject/Design Images/list.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -70,7 +70,7 @@
                             <graphic>
                                 <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@/Design Images/question.png" />
+                                        <Image url="@/com/example/ce216librarymanagementproject/Design Images/question.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -112,7 +112,7 @@
                                 <Insets right="170.0" />
                             </HBox.margin>
                             <image>
-                                <Image url="@/Design Images/Library of Heaven.png" />
+                                <Image url="@/com/example/ce216librarymanagementproject/Design Images/Library of Heaven.png" />
                             </image>
                         </ImageView>
                     </children>
